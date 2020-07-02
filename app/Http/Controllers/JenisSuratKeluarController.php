@@ -104,7 +104,7 @@ class JenisSuratKeluarController extends Controller
         //memanggil inisialisasi dari edit dan membuat variabel baru yang akan di masukkan ke database
         $suratkeluar = JenisSuratKeluar::find($id);
 
-        $suratkeluar->no_urut_surat = $request->nourutsurat;
+        
         $suratkeluar->jenissurat = $request->jenissurat;
         $suratkeluar->inisialjenissurat = $request->inisialjenissurat;
         $suratkeluar->keterangan = $request->keterangan;
