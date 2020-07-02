@@ -12,35 +12,35 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="statussurat">Status Surat Keluar</label>
-                  <input type="text" class="form-control" value="{{$suratkeluar->statussurat}}" id="statussurat" name="statussurat" placeholder="Status Surat Keluar">
+                  <input type="text" class="form-control" value="{{$suratkeluar->statussurat}}" id="statussurat" name="statussurat" placeholder="Status Surat Keluar" disabled>
                 </div>
                 <div class="form-group">
                   <label for="no_surat">No. Surat</label>
-                  <input type="text" class="form-control" value="{{$suratkeluar->no_surat}}" id="no_surat" name="no_surat" placeholder="Nomor Surat">
+                  <input type="text" class="form-control" value="{{$suratkeluar->no_surat}}" id="no_surat" name="no_surat" placeholder="Nomor Surat" disabled>
                 </div>
                 <div class="form-group">
                   <label for="jenissurat">Jenis Surat</label>
-                  <input type="text" class="form-control" value="{{$suratkeluar->jenissurat}}" id="jenissurat" name="jenissurat" placeholder="Jenis Surat">
+                  <input type="text" class="form-control" value="{{$suratkeluar->jenissurat}}" id="jenissurat" name="jenissurat" placeholder="Jenis Surat" disabled>
                 </div>
                 <div class="form-group">
                   <label for="perihal">Perihal</label>
-                  <input type="text" class="form-control" value="{{$suratkeluar->perihal}}"id="perihal" name="perihal" placeholder="Perihal">
+                  <input type="text" class="form-control" value="{{$suratkeluar->perihal}}"id="perihal" name="perihal" placeholder="Perihal" disabled>
                 </div>
                 <div class="form-group">
                   <label for="tujuan">Tujuan</label>
-                  <input type="text" class="form-control" value="{{$suratkeluar->tujuan}}" id="tujuan" name="tujuan" placeholder="Tujuan">
+                  <input type="text" class="form-control" value="{{$suratkeluar->tujuan}}" id="tujuan" name="tujuan" placeholder="Tujuan" disabled>
                 </div>
                 <div class="form-group">
                   <label for="perusahaan">Perusahaan</label>
-                  <input type="text" class="form-control" value="{{strtoupper($suratkeluar->perusahaan)}}" id="perusahaan" name="perusahaan"placeholder="Perusahaan">
+                  <input type="text" class="form-control" value="{{strtoupper($suratkeluar->perusahaan)}}" id="perusahaan" name="perusahaan"placeholder="Perusahaan" disabled>
                 </div>
                 <div class="form-group">
                   <label for="penanggungjawab">Penanggung Jawab</label>
-                  <input type="text" class="form-control" value="{{$suratkeluar->penanggungjawab}}" id="penanggungjawab" name="penanggungjawab"placeholder="Penanggung Jawab">
+                  <input type="text" class="form-control" value="{{$suratkeluar->penanggungjawab}}" id="penanggungjawab" name="penanggungjawab"placeholder="Penanggung Jawab" disabled>
                 </div>
                 <div class="form-group">
                   <label for="keterangan">Keterangan</label>
-                  <textarea rows="7" class="form-control" value="" id="keterangan" name="keterangan" placeholder="Keterangan">{{$suratkeluar->keterangan}}</textarea>
+                  <textarea rows="7" class="form-control" value="" id="keterangan" name="keterangan" placeholder="Keterangan" disabled>{{$suratkeluar->keterangan}}</textarea>
                 </div>
               <!-- /.box-body -->
 

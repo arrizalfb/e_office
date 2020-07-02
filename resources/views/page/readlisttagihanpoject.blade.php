@@ -13,39 +13,39 @@
               <div class="box-body">
                 <div class="form-group, col-md-6">
                   <label for="statusdokument">Status Dokument Project</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->statusdokument}}" id="statusdokument" name="statusdokument" placeholder="Status Dokument Project">
+                  <input type="text" class="form-control" value="{{$listtagihanpoject->statusdokument}}" id="statusdokument" name="statusdokument" placeholder="Status Dokument Project" disabled>
                 </div>
                 <div class="form-group, col-md-6">
                   <label for="statustagihan">Status Tagihan Project</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->statustagihan}}" id="statustagihan" name="statustagihan" placeholder="Status Tagihan Project">
+                  <input type="text" class="form-control" value="{{$listtagihanpoject->statustagihan}}" id="statustagihan" name="statustagihan" placeholder="Status Tagihan Project" disabled>
                 </div>
                 <div class="form-group">
                   <label for="instansirekanan">Intansi Rekanan</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->instansirekanan}}" id="instansirekanan" name="instansirekanan" placeholder="Intansi Rekanan">
+                  <input type="text" class="form-control" value="{{$listtagihanpoject->instansirekanan}}" id="instansirekanan" name="instansirekanan" placeholder="Intansi Rekanan" disabled>
                 </div>
                 <div class="form-group">
                   <label for="tanggaltagihan">Tanggal Tagihan</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->tanggaltagihan}}" id="tanggaltagihan" name="tanggaltagihan" placeholder="Tanggal Tagihan">
+                  <input type="text" class="form-control" value="{{$listtagihanpoject->tanggaltagihan}}" id="tanggaltagihan" name="tanggaltagihan" placeholder="Tanggal Tagihan" disabled>
                 </div>
                 <div class="form-group">
                   <label for="nominalhpp">Nominal HPP</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->nominalhpp}}" id="nominalhpp" name="nominalhpp" placeholder="Nominal HPP">
+                  <input type="text" class="form-control" value="{{$listtagihanpoject->nominalhpp}}" id="nominalhpp" name="nominalhpp" placeholder="Nominal HPP" disabled>
                 </div>
                 <div class="form-group">
                   <label for="nominalppn">Nominal PPN</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->ppn}}" id="nominalppn" name="nominalppn" placeholder="Nominal PPN">
+                  <input type="text" class="form-control" value="{{$listtagihanpoject->ppn}}" id="nominalppn" name="nominalppn" placeholder="Nominal PPN" disabled>
                 </div>
                 <div class="form-group">
                   <label for="tanggaljatuhtempo">Tanggal Jatuh Tempo</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->tanggaljatuhtempo}}" id="tanggaljatuhtempo" name="tanggaljatuhtempo" placeholder="Tanggal Jatuh Tempo">
+                  <input type="text" class="form-control" value="{{$listtagihanpoject->tanggaljatuhtempo}}" id="tanggaljatuhtempo" name="tanggaljatuhtempo" placeholder="Tanggal Jatuh Tempo" disabled>
                 </div>
                 <div class="form-group">
                   <label for="dokumentpelengkap">Dokument Pelengkap</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->dokumentpelengkap}}" id="dokumentpelengkap" name="dokumentpelengkap" placeholder="Dokument Pelengkap">
+                  <input type="text" class="form-control" value="{{$listtagihanpoject->dokumentpelengkap}}" id="dokumentpelengkap" name="dokumentpelengkap" placeholder="Dokument Pelengkap" disabled>
                 </div>
                 <div class="form-group">
                   <label for="keterangan">Keterangan</label>
-                  <textarea rows="7" class="form-control" value="" id="keterangan" name="keterangan" placeholder="Keterangan">{{$listtagihanpoject->keterangan}}</textarea>
+                  <textarea rows="7" class="form-control" value="" id="keterangan" name="keterangan" placeholder="Keterangan" disabled>{{$listtagihanpoject->keterangan}}</textarea>
                 </div>
               <!-- /.box-body -->
 

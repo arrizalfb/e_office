@@ -16,6 +16,7 @@ class CreateJenisSuratKeluarsTable extends Migration
         Schema::create('jenis_surat_keluars', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('jenissurat');
+            $table->text('noromawijenissurat');
             $table->text('inisialjenissurat');
             $table->text('keterangan');
             $table->timestamps();

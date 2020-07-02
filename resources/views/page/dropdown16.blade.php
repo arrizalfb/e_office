@@ -67,7 +67,6 @@
                         <th>Bulan Pajak</th>
                         <th>Nominal HPP</th>
                         <th>Nominal PPN</th>
-                        <th>Keterangan</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>

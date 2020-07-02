@@ -12,23 +12,23 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="statussurat">Status Surat Masuk</label>
-                  <input type="text" class="form-control" value="{{$suratmasuk->statussurat}}" id="statussurat" name="statussurat" placeholder="Status Surat Masuk">
+                  <input type="text" class="form-control" value="{{$suratmasuk->statussurat}}" id="statussurat" name="statussurat" placeholder="Status Surat Masuk" disabled>
                 </div>
                 <div class="form-group">
                   <label for="no_surat">No. Surat</label>
-                  <input type="text" class="form-control" value="{{$suratmasuk->no_surat}}" id="no_surat" name="no_surat" placeholder="Nomor Surat">
+                  <input type="text" class="form-control" value="{{$suratmasuk->no_surat}}" id="no_surat" name="no_surat" placeholder="Nomor Surat" disabled>
                 </div>
                 <div class="form-group">
                   <label for="perihal">Perihal</label>
-                  <input type="text" class="form-control" value="{{$suratmasuk->perihal}}"id="perihal" name="perihal" placeholder="Perihal">
+                  <input type="text" class="form-control" value="{{$suratmasuk->perihal}}"id="perihal" name="perihal" placeholder="Perihal" disabled>
                 </div>
                 <div class="form-group">
                   <label for="instansipengirim">Instansi Pengirim</label>
-                  <input type="text" class="form-control" value="{{$suratmasuk->instansipengirim}}" id="tujuan" name="tujuan" placeholder="Tujuan">
+                  <input type="text" class="form-control" value="{{$suratmasuk->instansipengirim}}" id="tujuan" name="tujuan" placeholder="Tujuan" disabled>
                 </div>
                 <div class="form-group">
                   <label for="keterangan">Keterangan</label>
-                  <textarea rows="7" class="form-control" value="" id="keterangan" name="keterangan" placeholder="Keterangan">{{$suratmasuk->Keterangan}}</textarea>
+                  <textarea rows="7" class="form-control" value="" id="keterangan" name="keterangan" placeholder="Keterangan" disabled>{{$suratmasuk->Keterangan}}</textarea>
                 </div>
               <!-- /.box-body -->
 
