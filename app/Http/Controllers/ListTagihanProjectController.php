@@ -64,7 +64,6 @@ class ListTagihanProjectController extends Controller
         //memanggil dari createjenissurat dengan variabel name
         ListTagihanProject::create([
             'instansirekanan'=>$request->instansi,
-            'bulantagihan'=>$bulan,
             'tanggaltagihan'=>$request->tanggaltagihan,
             'nominalhpp'=>$request->nominalhpp,
             'ppn'=>$ppn,

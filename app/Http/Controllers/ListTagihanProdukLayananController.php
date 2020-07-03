@@ -128,7 +128,7 @@ class ListTagihanProdukLayananController extends Controller
         $listtagihan = ListTagihanProdukLayanan::find($id);
         $listtagihan->instansirekanan = $request->instansirekanan;
         $listtagihan->tanggaltagihan = $request->tanggaltagihan;
-        $listtagihan->nominalhpp = $request->nominalhpp;
+        $listtagihan->hpp = $request->hpp;
         $listtagihan->tanggaljatuhtempo = $request->tanggaljatuhtempo;
         $listtagihan->dokumenpelengkap = $request->dokumenpelengkap;
         $listtagihan->keterangan = $request->keterangan;

@@ -134,6 +134,7 @@ class ListFakturPajakController extends Controller
         $listfaktur->nominalhpp = $request->nominalhpp;
         $listfaktur->nominalppn = $request->nominalppn;
         $listfaktur->keterangan = $request->keterangan;
+        $listfaktur->statusfakturpajak = $request->statusfakturpajak;
         $listfaktur->save();
 
 
