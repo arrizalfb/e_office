@@ -11,8 +11,8 @@
             {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
-                  <label for="statussurat">Status Surat Masuk</label>
-                  <input type="text" class="form-control" value="{{$suratmasuk->statussurat}}" id="statussurat" name="statussurat" placeholder="Status Surat Masuk" disabled>
+                  <label for="statussuratmasuk">Status Surat Masuk</label>
+                  <input type="text" class="form-control" value="{{$suratmasuk->statussuratmasuk}}" id="statussuratmasuk" name="statussuratmasuk" placeholder="Status Surat Masuk" disabled>
                 </div>
                 <div class="form-group">
                   <label for="no_surat">No. Surat</label>

@@ -12,7 +12,7 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="statussurat">Status Surat Keluar</label>
-                  <input type="text" class="form-control" value="{{$suratkeluar->statussurat}}" id="statussurat" name="statussurat" placeholder="Status Surat Keluar" disabled>
+                  <input type="text" class="form-control" value="{{$suratkeluar->statussuratkeluar}}" id="statussurat" name="statussurat" placeholder="Status Surat Keluar" disabled>
                 </div>
                 <div class="form-group">
                   <label for="no_surat">No. Surat</label>
