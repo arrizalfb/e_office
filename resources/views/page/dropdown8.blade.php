@@ -38,9 +38,9 @@
                         <td>{{$ltpl->instansirekanan}}</td>
                         <td>{{$bulan[date('m', strtotime($ltpl->tanggaltagihan))]}}</td>
                         <td>{{$ltpl->tanggaltagihan}}</td>
-                        <td>{{$ltpl->nominalhpp}}</td>
+                        <td>{{$ltpl->hpp}}</td>
                         <td>{{$ltpl->ppn}}</td>
-                        <td>{{$ltpl->tanggaljatuhtempo}}</td>
+                        <td>{{$ltpl->jatuhtempo}}</td>
                         <td><img src="{{asset('/storage/'.$ltpl->dokumenpelengkap)}}" height="100" width="100"></td>
                         <td>
                             <a href="/listtagihanproduklayanan/edit/{{ $ltpl->id }}" button type="button" class="btn btn-info badge-pill" style="padding-right:80px,width:80px">Edit</a>
