@@ -31,16 +31,16 @@
                   <input type="text" class="form-control" value="{{$listtagihanproduklayanan->tanggaltagihan}}" id="tanggaltagihan" name="tanggaltagihan" placeholder="Tanggal Tagihan" disabled>
                 </div>
                 <div class="form-group">
-                  <label for="nominalhpp">Nominal HPP</label>
-                  <input type="text" class="form-control" value="{{$listtagihanproduklayanan->nominalhpp}}" id="nominalhpp" name="nominalhpp" placeholder="Nominal HPP" disabled>
+                  <label for="hpp">Nominal HPP</label>
+                  <input type="text" class="form-control" value="{{$listtagihanproduklayanan->hpp}}" id="hpp" name="hpp" placeholder="Nominal HPP" disabled>
                 </div>
                 <div class="form-group">
                   <label for="nominalppn">Nominal PPN</label>
                   <input type="text" class="form-control" value="{{$listtagihanproduklayanan->ppn}}" id="nominalppn" name="nominalppn" placeholder="Nominal PPN" disabled>
                 </div>
                 <div class="form-group">
-                  <label for="tanggaljatuhtempo">Tanggal Jatuh Tempo</label>
-                  <input type="text" class="form-control" value="{{$listtagihanproduklayanan->tanggaljatuhtempo}}" id="tanggaljatuhtempo" name="tanggaljatuhtempo" placeholder="Tanggal Jatuh Tempo" disabled>
+                  <label for="jatuhtempo">Tanggal Jatuh Tempo</label>
+                  <input type="text" class="form-control" value="{{$listtagihanproduklayanan->jatuhtempo}}" id="jatuhtempo" name="jatuhtempo" placeholder="Tanggal Jatuh Tempo" disabled>
                 </div>
                 <div class="form-group">
                   <label for="dokumentpelengkap">Dokument Pelengkap</label>
