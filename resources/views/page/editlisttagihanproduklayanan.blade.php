@@ -45,6 +45,10 @@
                   <input type="text" class="form-control" value="{{$listtagihan->hpp}}"id="hpp" name="hpp" placeholder="Nominal HPP">
                 </div>
                 <div class="form-group">
+                  <label for="bulantagihan">Bulan Tagihan</label>
+                  <input type="date" class="form-control" value="{{$listtagihan->bulantagihan}}" id="bulantagihan" name="bulantagihan" placeholder="Bulan Tagihan">
+                </div>
+                <div class="form-group">
                   <label for="tanggaljatuhtempo">Tanggal Jatuh Tempo </label>
                   <input type="date" class="form-control" value="{{$listtagihan->tanggaljatuhtempo}}"id="tanggaljatuhtempo" name="tanggaljatuhtempo" placeholder="Tanggal Jatuh Tempo">
                 </div>
