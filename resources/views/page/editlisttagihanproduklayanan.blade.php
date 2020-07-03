@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                   <label for="jatuhtempo">Tanggal Jatuh Tempo </label>
-                  <input type="date" class="form-control" value="{{$listtagihan->tempo}}"id="jatuhtempo" name="jatuhtempo" placeholder="Tanggal Jatuh Tempo">
+                  <input type="date" class="form-control" value="{{$listtagihan->jatuhtempo}}"id="jatuhtempo" name="jatuhtempo" placeholder="Tanggal Jatuh Tempo">
                 </div>
                 <div class="form-group">
                   <label for="dokumentpelengkap">Dokument Pelengkap </label>
