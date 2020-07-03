@@ -24,6 +24,10 @@
                     </select>
                 </div>
                 <div class="form-group">
+                  <label for="bulantagihan">Bulan Tagihan</label>
+                  <input type="date" class="form-control" id="bulantagihan" name="bulantagihan" placeholder="Tanggal Tagihan">
+                </div>
+                <div class="form-group">
                   <label for="tanggaltagihan">Tanggal Tagihan</label>
                   <input type="date" class="form-control" id="tanggaltagihan" name="tanggaltagihan" placeholder="Tanggal Tagihan">
                 </div>
