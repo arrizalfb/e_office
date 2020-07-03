@@ -14,7 +14,7 @@
                 <div class="form-group">
                   <label for="statussuratkeluar">Status Surat</label>
                   <select class="form-control" id="statussuratkeluar" name="statussuratkeluar">
-                    <option id="statussuratkeluar" name="statussuratkeluar" value="--Pilih--">--Pilih--</option>
+                    <option id="statussuratkeluar" name="statussuratkeluar" value="-----Pilih-----">-----Pilih-----</option>
                     <option id="statussuratkeluar" name="statussuratkeluar" value="Belum Dikirim">Belum Dikirim</option>
                     <option id="statussuratkeluar" name="statussuratkeluar" value="Dikirim Via Email">Dikirim Via Email</option>
                     <option id="statussuratkeluar" name="statussuratkeluar" value="Dikirim Via Social Chat">Dikirim Via Social Chat</option> 

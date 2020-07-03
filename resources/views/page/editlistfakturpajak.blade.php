@@ -14,7 +14,7 @@
                 <div class="form-group">
                   <label for="statusfakturpajak">Status Faktur Pajak</label>
                   <select class="form-control" id="statusfakturpajak" name="statusfakturpajak">
-                    <option id="status" name="statusfakturpajak" value="--Pilih--">--Pilih--</option>
+                    <option id="status" name="statusfakturpajak" value="-----Pilih-----">-----Pilih-----</option>
                     <option id="status" name="statusfakturpajak" value="Belum Dibayar">Belum Dibayar</option>
                     <option id="status" name="statusfakturpajak" value="Sudah Dibayar">Sudah Dibayar</option>
                   </select>

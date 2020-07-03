@@ -14,7 +14,7 @@
                 <div class="form-group, col-md-6">
                   <label for="statusdokument">Status Dokument</label>
                   <select class="form-control" id="statusdokument" name="statusdokument">
-                    <option id="statusdokument" name="statusdokument" value="--Pilih--">--Pilih--</option>
+                    <option id="statusdokument" name="statusdokument" value="-----Pilih-----">-----Pilih-----</option>
                     <option id="statusdokument" name="statusdokument" value="Belum Dikirim">Belum Dikirim</option>
                     <option id="statusdokument" name="statusdokument" value="Dikirim Via Email">Dikirim Via Email</option>
                     <option id="statusdokument" name="statusdokument" value="Dikirim via social chat">Dikirim Via Social Chat</option>
@@ -25,7 +25,7 @@
                 <div class="form-group, col-md-6">
                   <label for="statustagihan">Status Tagihan</label>
                   <select class="form-control" id="statustagihan" name="statustagihan">
-                    <option id="statustagihan" name="statustagihan" value="--Pilih--">--Pilih--</option>
+                    <option id="statustagihan" name="statustagihan" value="-----Pilih-----">-----Pilih-----</option>
                     <option id="statustagihan" name="statustagihan" value="Diterima CP">Diterima CP</option>
                     <option id="statustagihan" name="statustagihan" value="Diproses Keuangan">Diproses Keuangan</option>
                     <option id="statustagihan" name="statustagihan" value="Diproses Direksi">Diproses Direksi</option>

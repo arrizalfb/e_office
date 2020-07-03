@@ -14,7 +14,7 @@
                 <div class="form-group">
                   <label for="statussuratmasuk">Status Surat Masuk</label>
                   <select class="form-control" id="statussuratmasuk" name="statussuratmasuk">
-                    <option id="statussuratmasuk" name="statussuratmasuk" value="--Pilih--">--Pilih--</option>
+                    <option id="statussuratmasuk" name="statussuratmasuk" value="-----Pilih-----">-----Pilih-----</option>
                     <option id="statussuratmasuk" name="statussuratmasuk" value="Diterima">Diterima</option>
                     <option id="statussuratmasuk" name="statussuratmasuk" value="Dibalas">Dibalas</option>
                   </select>
