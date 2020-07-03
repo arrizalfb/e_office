@@ -71,6 +71,7 @@ class ListFakturPajakController extends Controller
             'nominalhpp'=>$request->nominalhpp,
             'nominalppn'=>$request->nominalppn,
             'keterangan'=>$request->keterangan,
+            'statusfakturpajak'=>''
             
         ]);
         return redirect('/listfakturpajak');
