@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                   <label for="bulantagihan">Bulan Tagihan</label>
-                  <input type="date" class="form-control" value="{{$listtagihan->bulantagihan}}" id="bulantagihan" name="bulantagihan" placeholder="Bulan Tagihan">
+                  <input type="text" class="form-control" value="{{$listtagihan->bulantagihan}}" id="bulantagihan" name="bulantagihan" placeholder="Bulan Tagihan">
                 </div>
                 <div class="form-group">
                   <label for="tanggaltagihan">Tanggal Tagihan </label>
