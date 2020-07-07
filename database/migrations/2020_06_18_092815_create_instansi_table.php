@@ -18,7 +18,7 @@ class CreateInstansiTable extends Migration
             $table->string('instansi_rekanan');
             $table->text('alamat');
             $table->integer('npwp');
-            $table->text('contact_person');
+            $table->integer('contact_person');
             $table->timestamps();
         });
     }
