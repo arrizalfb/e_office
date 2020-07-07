@@ -16,7 +16,6 @@
                     <tr>
                         <th>No</th>
                         <th>Instansi Rekanan</th>
-                        <th>Bulan Tagihan</th>
                         <th>Tanggal Tagihan</th>
                         <th>Nominal HPP</th>
                         <th>Nominal PPN</th>
@@ -36,7 +35,6 @@
                     <tr>
                         <td>{{$no++}}</td>
                         <td>{{$ltpl->instansirekanan}}</td>
-                        <td>{{$bulan[date('m', strtotime($ltpl->tanggaltagihan))]}}</td>
                         <td>{{$ltpl->tanggaltagihan}}</td>
                         <td>{{$ltpl->hpp}}</td>
                         <td>{{$ltpl->ppn}}</td>
@@ -55,7 +53,6 @@
                     <tr>
                         <th>No</th>
                         <th>Instansi Rekanan</th>
-                        <th>Bulan Tagihan</th>
                         <th>Tanggal Tagihan</th>
                         <th>Nominal HPP</th>
                         <th>Nominal PPN</th>
