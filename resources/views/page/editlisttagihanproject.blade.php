@@ -49,8 +49,8 @@
                   <input type="date" class="form-control" value="{{$listproject->tanggaljatuhtempo}}"id="tanggaljatuhtempo" name="tanggaljatuhtempo" placeholder="Tanggal Jatuh Tempo">
                 </div>
                 <div class="form-group">
-                  <label for="instansirekanan">Dokument Pelengkap </label>
-                  <input type="text" class="form-control" value="{{$listproject->dokumentpelengkap}}"id="instansirekanan" name="instansirekanan" placeholder="Instansi Rekanan">
+                  <label for="dokumentpelengkap">Dokument Pelengkap </label>
+                  <input type="text" class="form-control" value="{{$listproject->dokumentpelengkap}}"id="dokumentpelengkap" name="dokumentpelengkap" placeholder="Dokument Pelengkap">
                 </div>
                 <div class="form-group">
                   <label for="keterangan">Keterangan</label>
