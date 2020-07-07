@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-group">
                   <label for="contactperson">Contact Person</label>
-                  <textarea rows="7" class="form-control" id="contactperson" name="contactperson" placeholder="Contact Person"></textarea>
+                  <input type="number" class="form-control" id="contactperson" name="contact" placeholder="Contact Person">
                 </div>
               <!-- /.box-body -->
 
