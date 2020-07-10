@@ -115,20 +115,21 @@ class ListTagihanProdukLayananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'instansirekanan'=>'required',
-            'tanggaltagihan'=>'required',
-            'nominalhpp'=>'required',
-            'tanggaljatuhtempo'=>'required',
-            'dokumenpelengkap'=>'required',
-            'keterangan'=>'required',
-        ]);
+        // $this->validate($request,[
+        //     'instansirekanan'=>'required',
+        //     'tanggaltagihan'=>'required',
+        //     'hpp'=>'required',
+        //     'tanggaljatuhtempo'=>'required',
+        //     'dokumenpelengkap'=>'required',
+        //     'keterangan'=>'required',
+        // ]);
 
         $listtagihan = ListTagihanProdukLayanan::find($id);
         $listtagihan->instansirekanan = $request->instansirekanan;
         $listtagihan->tanggaltagihan = $request->tanggaltagihan;
         $listtagihan->hpp = $request->hpp;
-        $listtagihan->tanggaljatuhtempo = $request->tanggaljatuhtempo;
+        $listtagihan->ppn = $request->ppn;
+        $listtagihan->jatuhtempo = $request->jatuhtempo;
         $listtagihan->dokumenpelengkap = $request->dokumenpelengkap;
         $listtagihan->keterangan = $request->keterangan;
         $listtagihan->statusdokument = $request->statusdokument;
