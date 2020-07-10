@@ -63,7 +63,7 @@
                 </div>
                 <div class="form-group">
                   <label for="dokumentpelengkap">Dokument Pelengkap </label>
-                  <input type="file" accept=".jpg, .pdf, .doc, .docx" class="form-control" value="{{$listtagihan->dokumenpelengkap}}"id="dokumenpelengkap" name="dokumenpelengkap" placeholder="Dokument Pelengkap">
+                  <input type="text" class="form-control" value="{{$listtagihan->dokumenpelengkap}}"id="dokumenpelengkap" name="dokumenpelengkap" placeholder="Dokument Pelengkap">
                 </div>
                 <div class="form-group">
                   <label for="keterangan">Keterangan</label>
