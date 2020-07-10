@@ -21,10 +21,10 @@ Route::get('registration', 'AuthController@registration');
 Route::post('post-registration', 'AuthController@postRegistration'); 
 
 //root untuk dashboard
-Route::get('/dashboard', 'AuthController@dashboard'); 
+Route::get('/dashboard', 'AuthController@dashboard'); /*
 Route::get('/dashboard', function () {
     return view('page.home');
-})->name('/dashboard');
+})->name('/dashboard');*/
 
 //root untuk user profile
 Route::get('/profile', function () {
@@ -38,6 +38,8 @@ Route::get('logout', 'AuthController@logout')->name('logout');
 Route::get('/instansi', 'InstansiController@index');
 Route::get('/instansi/create', 'InstansiController@create');
 Route::post('/instansi/save', 'InstansiController@save');
+
+Route::get('/dashboard', 'HomeController@index');
 
 //untuk membuat nomor surat otomatis
 /*Route::get('otomatis', function(){
