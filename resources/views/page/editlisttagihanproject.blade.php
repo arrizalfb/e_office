@@ -17,8 +17,17 @@
                     <option id="statusdokument" name="statusdokument" value="-----Pilih-----">-----Pilih-----</option>
                     <option id="statusdokument" name="statusdokument" value="Belum Dikirim">Belum Dikirim</option>
                     <option id="statusdokument" name="statusdokument" value="Dikirim Via Email">Dikirim Via Email</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim via social chat">Dikirim Via Social Chat</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi">Dikirim Via Ekspedisi</option>
+                    <optgroup label="Dikirim Via Social Chat">
+                    <option id="statusdokument" name="statusdokument" value="Dikirim via social chat | Line">Line</option>
+                    <option id="statusdokument" name="statusdokument" value="Dikirim via social chat | WatsApp">WatsApp</option>
+                    <option id="statusdokument" name="statusdokument" value="Dikirim via social chat | Telegram">Telegram</option>
+                    </optgroup>
+                    <optgroup label="Dikirim Via Ekspedisi">
+                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi | POS Indonesia">POS Indonesia</option>
+                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi | JNE">JNE</option>
+                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi | SiCepat">SiCepat</option>
+                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi | J&T">J&T</option>
+                    </optgroup>
                     <option id="statusdokument" name="statusdokument" value="Sudah Diterima">Sudah Diterima</option>
                   </select>
                 </div>
@@ -29,7 +38,7 @@
                     <option id="statustagihan" name="statustagihan" value="Diterima CP">Diterima CP</option>
                     <option id="statustagihan" name="statustagihan" value="Diproses Keuangan">Diproses Keuangan</option>
                     <option id="statustagihan" name="statustagihan" value="Diproses Direksi">Diproses Direksi</option>
-                    <option id="statustagihan" name="statustagihanS" value="Sudah Dibayar">Sudah Dibayar</option>
+                    <option id="statustagihan" name="statustagihan" value="Sudah Dibayar">Sudah Dibayar</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -42,7 +51,11 @@
                 </div>
                 <div class="form-group">
                   <label for="nominalhpp">Nominal HPP </label>
-                  <input type="text" class="form-control" value="{{$listproject->nominalhpp}}"id="nominalhpp" name="nominalhpp" placeholder="Instansi Rekanan">
+                  <input type="text" class="form-control" value="{{$listproject->nominalhpp}}"id="nominalhpp" name="nominalhpp" placeholder="Nominal HPP">
+                </div>
+                <div class="form-group">
+                  <label for="ppn">Nominal PPN </label>
+                  <input type="text" class="form-control" value="{{$listproject->ppn}}"id="ppn" name="ppn" placeholder="Nominal PPN">
                 </div>
                 <div class="form-group">
                   <label for="tanggaljatuhtempo">Tanggal Jatuh Tempo </label>
@@ -50,7 +63,7 @@
                 </div>
                 <div class="form-group">
                   <label for="dokumentpelengkap">Dokument Pelengkap </label>
-                  <input type="file" accept=".jpg, .pdf, .doc, .docx" class="form-control" value="{{$listproject->dokumentpelengkap}}"id="dokumentpelengkap" name="dokumentpelengkap" placeholder="Dokument Pelengkap">
+                  <input type="text" class="form-control" value="{{$listproject->dokumentpelengkap}}"id="dokumentpelengkap" name="dokumentpelengkap" placeholder="Dokument Pelengkap">
                 </div>
                 <div class="form-group">
                   <label for="keterangan">Keterangan</label>
