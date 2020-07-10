@@ -17,8 +17,17 @@
                     <option id="statussuratkeluar" name="statussuratkeluar" value="-----Pilih-----">-----Pilih-----</option>
                     <option id="statussuratkeluar" name="statussuratkeluar" value="Belum Dikirim">Belum Dikirim</option>
                     <option id="statussuratkeluar" name="statussuratkeluar" value="Dikirim Via Email">Dikirim Via Email</option>
-                    <option id="statussuratkeluar" name="statussuratkeluar" value="Dikirim Via Social Chat">Dikirim Via Social Chat</option> 
-                    <option id="statussuratkeluar" name="statussuratkeluar" value="Dikirim Via Ekspedisi">Dikirim Via Ekspedisi</option>
+                    <optgroup label="Dikirim Via Social Chat">
+                    <option id="statussuratkeluar" name="statussuratkeluar" value="Dikirim Via social chat | Line">Line</option>
+                    <option id="statussuratkeluar" name="statussuratkeluar" value="Dikirim Via social chat | WhatsApp">WhatsApp</option>
+                    <option id="statussuratkeluar" name="statussuratkeluar" value="Dikirim Via social chat | Telegram">Telegram</option>
+                    </optgroup>
+                    <optgroup laebl="Dikirim Via Ekspedisi">
+                    <option id="statussuratkeluar" name="statussuratkeluar" value="Dikirim Via Ekspedisi | POS Indonesia">POS Indonesia</option>
+                    <option id="statussuratkeluar" name="statussuratkeluar" value="Dikirim Via Ekspedisi | JNE">JNE</option>
+                    <option id="statussuratkeluar" name="statussuratkeluar" value="Dikirim Via Ekspedisi | SiCepat">SiCepat</option>
+                    <option id="statussuratkeluar" name="statussuratkeluar" value="Dikirim Via Ekspedisi | J&T">J&T</option>
+                    </optgroup>
                     <option id="statussuratkeluar" name="statussuratkeluar" value="Sudah diterima">Sudah diterima</option>
                   </select>
                 </div>

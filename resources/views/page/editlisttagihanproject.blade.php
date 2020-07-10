@@ -18,9 +18,9 @@
                     <option id="statusdokument" name="statusdokument" value="Belum Dikirim">Belum Dikirim</option>
                     <option id="statusdokument" name="statusdokument" value="Dikirim Via Email">Dikirim Via Email</option>
                     <optgroup label="Dikirim Via Social Chat">
-                    <option id="statusdokument" name="statusdokument" value="Dikirim via social chat | Line">Line</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim via social chat | WhatsApp">WhatsApp</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim via social chat | Telegram">Telegram</option>
+                    <option id="statusdokument" name="statusdokument" value="Dikirim Via social chat | Line">Line</option>
+                    <option id="statusdokument" name="statusdokument" value="Dikirim Via social chat | WhatsApp">WhatsApp</option>
+                    <option id="statusdokument" name="statusdokument" value="Dikirim Via social chat | Telegram">Telegram</option>
                     </optgroup>
                     <optgroup label="Dikirim Via Ekspedisi">
                     <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi | POS Indonesia">POS Indonesia</option>
