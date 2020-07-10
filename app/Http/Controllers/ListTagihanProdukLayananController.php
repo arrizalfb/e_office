@@ -68,7 +68,6 @@ class ListTagihanProdukLayananController extends Controller
         //memanggil dari createjenissurat dengan variabel name
         ListTagihanProdukLayanan::create([
             'instansirekanan'=>$request->instansi,
-            'bulantagihan'=>$bulan,
             'tanggaltagihan'=>$request->tanggaltagihan,
             'hpp'=>$request->nominalhpp,
             'ppn'=>$ppn,
