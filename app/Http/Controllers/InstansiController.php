@@ -25,6 +25,7 @@ class InstansiController extends Controller
             'instansirekanan'=>'required',
             'alamat'=>'required',
             'npwp'=>'required',
+            'nama_conatact'=>'required',
             'contact'=>'required'
         ]);
 
@@ -32,6 +33,7 @@ class InstansiController extends Controller
             'instansi_rekanan'=>$request->instansirekanan,
             'alamat'=>$request->alamat,
             'npwp'=>$request->npwp,
+            'nama_contact'=>$request->nama_contact,
             'contact_person'=>$request->contact
         ]);
         return redirect('/instansi');
