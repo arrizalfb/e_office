@@ -25,7 +25,7 @@ class InstansiController extends Controller
             'instansirekanan'=>'required',
             'alamat'=>'required',
             'npwp'=>'required',
-            'nama_conatact'=>'required',
+            'nama_contact'=>'required',
             'contact'=>'required'
         ]);
 

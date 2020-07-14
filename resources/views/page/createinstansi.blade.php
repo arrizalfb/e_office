@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                   <label for="contactperson">Contact</label>
-                  <input type="text" class="form-control" id="contactperson" name="contact" placeholder="Contact Person">
+                  <input type="number" class="form-control" id="contactperson" name="contact" placeholder="Contact">
                 </div>
               <!-- /.box-body -->
 
