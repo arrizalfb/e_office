@@ -23,8 +23,12 @@
                   <input type="number" class="form-control" id="npwp" name="npwp"placeholder="NPWP">
                 </div>
                 <div class="form-group">
-                  <label for="contactperson">Contact Person</label>
-                  <input type="number" class="form-control" id="contactperson" name="contact" placeholder="Contact Person">
+                  <label for="namacontactperson">Nama Contact</label>
+                  <input type="text" class="form-control" id="namacontactperson" name="namacontactperson" placeholder="Nama Contact">
+                </div>
+                <div class="form-group">
+                  <label for="contactperson">Contact</label>
+                  <input type="text" class="form-control" id="contactperson" name="contact" placeholder="Contact Person">
                 </div>
               <!-- /.box-body -->
 
