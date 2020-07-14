@@ -38,16 +38,4 @@ class InstansiController extends Controller
         ]);
         return redirect('/instansi');
     }
-    public function edit($id)
-    {
-        //
-    }
-    
-    public function update($id){
-        //
-    }
-    
-    public function delete($id){
-        //
-    }
 }
