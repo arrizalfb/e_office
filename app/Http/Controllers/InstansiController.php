@@ -16,7 +16,7 @@ class InstansiController extends Controller
     public function create(){
         //untuk mengurutkan nomor
         $max = Instansi::max('id');
-        $max = $max + 1;
+        // $max = $max + 1;
 
         return view ('page.createinstansi');
     }
