@@ -18,7 +18,8 @@
                     <th>Instansi Rekanan</th>
                     <th>Alamat</th>
                     <th>NPWP</th>
-                    <th>Contact Person</th>
+                    <th>Nama Contact</th>
+                    <th>Contact</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,7 @@
                       <td>{{$i->instansi_rekanan}}</td>
                       <td>{{$i->alamat}}</td>
                       <td>{{$i->npwp}}</td>
+                      <td>{{$i->nama_contact}}</td>
                       <td>{{$i->contact_person}}</td>
                     </tr>
                   @endforeach
@@ -39,7 +41,8 @@
                       <th>Instansi Rekanan</th>
                       <th>Alamat</th>
                       <th>NPWP</th>
-                      <th>Contact Person</th>
+                      <th>Nama Contact</th>
+                      <th>Contact</th>
                     </tr>
                 </tfoot>
               </table>
