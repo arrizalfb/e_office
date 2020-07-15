@@ -3,7 +3,7 @@
 @section('content')
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title"><b>Form Intansi Rekanan</b></h3>
+              <h3 class="box-title"><b>Form Divisi</b></h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
