@@ -123,7 +123,7 @@
         </li>
         <li class="{{Request::is('/') ? 'active' : null }}">
           <a href="{{url('/divisi')}}">
-            <i class="fa fa-files-o"></i>
+            <i class="fa fa-building-o"></i>
             <span>Divisi</span>
           </a>
         </li>
