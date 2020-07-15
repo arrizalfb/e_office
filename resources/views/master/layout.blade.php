@@ -121,6 +121,12 @@
             <span>Instansi Rekanan</span>
           </a>
         </li>
+        <li class="{{Request::is('/') ? 'active' : null }}">
+          <a href="{{url('/divisi')}}">
+            <i class="fa fa-files-o"></i>
+            <span>Divisi</span>
+          </a>
+        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-laptop"></i>
