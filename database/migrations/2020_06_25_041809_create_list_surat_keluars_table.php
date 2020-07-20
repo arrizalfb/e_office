@@ -19,7 +19,6 @@ class CreateListSuratKeluarsTable extends Migration
             $table->text('jenissurat');
             $table->text('perihal');
             $table->text('tujuan');
-            $table->text('perusahaan');
             $table->text('penanggungjawab');
             $table->text('keterangan');
             $table->text('statussuratkeluar');
