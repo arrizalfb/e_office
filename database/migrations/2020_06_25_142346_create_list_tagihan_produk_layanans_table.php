@@ -23,6 +23,8 @@ class CreateListTagihanProdukLayanansTable extends Migration
             $table->text('tanggaljatuhtempo');
             $table->text('dokumenpelengkap');
             $table->text('keterangan');
+            $table->text('statusdokument');
+            $table->text('statustagihan');
             $table->timestamps();
         });
     }

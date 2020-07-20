@@ -76,7 +76,7 @@ class ListSuratMasukController extends Controller
         //memanggil dari createlistsuratmasuk dengan variabel id
         ListSuratMasuk::create([
             //dari database => dari variabel name html
-            'no_surat'=>$request->number,
+            'no_surat'=>$request->no_surat,
             'perihal'=>$request->perihal,
             'instansipengirim'=>$request->instansipengirim,
             'Keterangan'=>$request->Keterangan,
