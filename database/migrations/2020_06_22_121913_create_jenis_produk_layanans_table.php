@@ -16,7 +16,7 @@ class CreateJenisProdukLayanansTable extends Migration
         Schema::create('jenis_produk_layanans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('jenisproduklayanan');
-            $table->text('ket');
+            $table->text('keterangan');
             $table->timestamps();
         });
     }

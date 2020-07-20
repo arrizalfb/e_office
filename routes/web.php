@@ -17,8 +17,8 @@ Route::get('login', 'AuthController@index');
 Route::post('post-login', 'AuthController@postLogin'); 
 
 //root untuk registration
-Route::get('registration', 'AuthController@registration');
-Route::post('post-registration', 'AuthController@postRegistration'); 
+// Route::get('registration', 'AuthController@registration');
+// Route::post('post-registration', 'AuthController@postRegistration'); 
 
 //root untuk dashboard
 Route::get('/dashboard', 'AuthController@dashboard'); /*

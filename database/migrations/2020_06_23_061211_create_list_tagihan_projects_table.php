@@ -22,6 +22,8 @@ class CreateListTagihanProjectsTable extends Migration
             $table->text('tanggaljatuhtempo');
             $table->text('dokumentpelengkap');
             $table->text('keterangan');
+            $table->text('statusdokument');
+            $table->text('statustagihan');
             $table->timestamps();
         });
     }

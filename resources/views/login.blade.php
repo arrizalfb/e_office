@@ -24,7 +24,7 @@
         <form action="{{url('post-login')}}" method="POST" id="logForm">
             {{ csrf_field() }}
             <h2>Login Account</h2>
-            <p class="lead">Please login form too dashbord admin.</p>
+            <p class="lead">Please Login</p>
             
             <div class="form-group">
                 <div class="input-group">
@@ -47,9 +47,7 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
             </div>
-            <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
         </form>
-        <div class="text-center">Already have an account? <a href="{{url('registration')}}">Sign Up here</a>.</div>
     </div>
 </body>
 </html>

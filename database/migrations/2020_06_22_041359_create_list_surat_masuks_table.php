@@ -18,7 +18,8 @@ class CreateListSuratMasuksTable extends Migration
             $table->text('no_surat');
             $table->text('perihal');
             $table->text('instansipengirim');
-            $table->text('ket');
+            $table->text('Keterangan');
+            $table->text('statussuratmasuk');
             $table->timestamps();
         });
     }
