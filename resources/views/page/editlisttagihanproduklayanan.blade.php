@@ -12,29 +12,20 @@
             {{ method_field('PUT') }}
               <div class="box-body">
                 <div class="form-group, col-md-6">
-                <label for="statusdokument">Status Dokument Project</label>
+                  <label for="statusdokument">Status Dokument</label>
                   <select class="form-control" id="statusdokument" name="statusdokument">
-                    <option id="statusdokument" name="statusdokument" value="-----Pilih-----">-----Pilih-----</option>
+                    <option id="statusdokument" name="statusdokument" value="--Pilih--">--Pilih--</option>
                     <option id="statusdokument" name="statusdokument" value="Belum Dikirim">Belum Dikirim</option>
                     <option id="statusdokument" name="statusdokument" value="Dikirim Via Email">Dikirim Via Email</option>
-                    <optgroup label="Dikirim Via Social Chat">
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via social chat | Line">Line</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via social chat | WhatsApp">WhatsApp</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via social chat | Telegram">Telegram</option>
-                    </optgroup>
-                    <optgroup label="Dikirim Via Ekspedisi">
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi | POS Indonesia">POS Indonesia</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi | JNE">JNE</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi | SiCepat">SiCepat</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi | J&T">J&T</option>
-                    </optgroup>
+                    <option id="statusdokument" name="statusdokument" value="Dikirim via social chat">Dikirim Via Social Chat</option>
+                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi">Dikirim Via Ekspedisi</option>
                     <option id="statusdokument" name="statusdokument" value="Sudah Diterima">Sudah Diterima</option>
                   </select>
                 </div>
                 <div class="form-group, col-md-6">
                   <label for="statustagihan">Status Tagihan</label>
                   <select class="form-control" id="statustagihan" name="statustagihan">
-                    <option id="statustagihan" name="statustagihan" value="-----Pilih-----">-----Pilih-----</option>
+                    <option id="statustagihan" name="statustagihan" value="--Pilih--">--Pilih--</option>
                     <option id="statustagihan" name="statustagihan" value="Diterima CP">Diterima CP</option>
                     <option id="statustagihan" name="statustagihan" value="Diproses Keuangan">Diproses Keuangan</option>
                     <option id="statustagihan" name="statustagihan" value="Diproses Direksi">Diproses Direksi</option>
@@ -50,16 +41,12 @@
                   <input type="date" class="form-control" value="{{$listtagihan->tanggaltagihan}}"id="tanggaltagihan" name="tanggaltagihan" placeholder="Tanggal Tagihan">
                 </div>
                 <div class="form-group">
-                  <label for="hpp">Nominal HPP </label>
-                  <input type="text" class="form-control" value="{{$listtagihan->hpp}}"id="hpp" name="hpp" placeholder="Nominal HPP">
+                  <label for="nominalhpp">Nominal HPP </label>
+                  <input type="text" class="form-control" value="{{$listtagihan->nominalhpp}}"id="nominalhpp" name="nominalhpp" placeholder="Instansi Rekanan">
                 </div>
                 <div class="form-group">
-                  <label for="ppn">Nominal PPN </label>
-                  <input type="text" class="form-control" value="{{$listtagihan->ppn}}"id="ppn" name="ppn" placeholder="Nominal PPN">
-                </div>
-                <div class="form-group">
-                  <label for="jatuhtempo">Tanggal Jatuh Tempo </label>
-                  <input type="date" class="form-control" value="{{$listtagihan->jatuhtempo}}"id="jatuhtempo" name="jatuhtempo" placeholder="Tanggal Jatuh Tempo">
+                  <label for="tanggaljatuhtempo">Tanggal Jatuh Tempo </label>
+                  <input type="date" class="form-control" value="{{$listtagihan->tanggaljatuhtempo}}"id="tanggaljatuhtempo" name="tanggaljatuhtempo" placeholder="Tanggal Jatuh Tempo">
                 </div>
                 <div class="form-group">
                   <label for="dokumentpelengkap">Dokument Pelengkap </label>

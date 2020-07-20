@@ -1,9 +1,9 @@
 @extends('master.layout')
 
 @section('content')
-           <div class="box box-primary">
+		<div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title"><b>List Faktur Pajak</b></h3>
+              <h3 class="box-title"><b>Laporan Faktur Pajak</b></h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -54,15 +54,11 @@
                   <label for="nominalppn">Nominal PPN</label>
                   <input type="text" class="form-control" value="{{$listfakturpajak->nominalppn}}" id="nominalppn" name="nominalppn" placeholder="Nominal PPN" readonly>
                 </div>
-                <div class="form-group">
-                  <label for="keterangan">Keterangan</label>
-                  <textarea rows="7" class="form-control" value="" id="keterangan" name="keterangan" placeholder="Keterangan" readonly>{{$listfakturpajak->keterangan}}</textarea>
-                </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
-              <a href="/listfakturpajak" button type="button" class="btn btn-primary badge-pill" style="padding-right:80px,width:80px">Back</a>
+              <a href="/laporan/listfakturpajak" button type="button" class="btn btn-primary badge-pill" style="padding-right:80px,width:80px">Back</a>
               </div>
             </form>
-          </div>
+         </div>
 @endsection

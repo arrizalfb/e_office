@@ -3,10 +3,10 @@
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title"><b>Table List Tagihan Produk/Layanan</b></h3>
+            <h3 class="box-title"><b>Laporan List Tagihan Produk/Layanan</b></h3>
         </div>
         <div class="card-body" style="padding:10px">
-            <a href="/listtagihanproduklayanan/create" button type="button" class="btn btn-primary badge-pill" style="padding-right:80px,width:80px">Create</a>
+            <a href="/laporan/listtagihanproduklayanan/cetaklist" target="_blank" button type="button" class="btn btn-primary badge-pill" style="padding-right:80px,width:80px">Cetak</a>
         </div>
         
         <!-- /.box-header -->
@@ -43,29 +43,14 @@
                         <td>{{$ltpl->tanggaljatuhtempo}}</td>
                         <td><img src="{{asset('/storage/'.$ltpl->dokumenpelengkap)}}" height="100" width="100"></td>
                         <td>
-                            <a href="/listtagihanproduklayanan/edit/{{ $ltpl->id }}" button type="button" class="btn btn-info badge-pill" style="padding-right:80px,width:80px">Edit</a>
-                            <a href="/listtagihanproduklayanan/view/{{ $ltpl->id }}" button type="button" class="btn btn-warning badge-pill" style="padding-right:80px,width:80px">View</a>
-                            <a href="/listtagihanproduklayanan/delete/{{ $ltpl->id }}" button type="button" class="btn btn-danger badge-pill" style="padding-right:80px,width:80px">Delete</a>
+                            <a href="/laporan/listtagihanproduklayanan/view/{{ $ltpl->id }}" button type="button" class="btn btn-warning badge-pill" style="padding-right:80px,width:80px">View</a>
+                            <!-- <a href="/listtagihanproduklayanan/delete/{{ $ltpl->id }}" button type="button" class="btn btn-danger badge-pill" style="padding-right:80px,width:80px">Delete</a> -->
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
-
-                <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Instansi Rekanan</th>
-                        <th>Bulan Tagihan</th>
-                        <th>Tanggal Tagihan</th>
-                        <th>Nominal HPP</th>
-                        <th>Nominal PPN</th>
-                        <th>Tanggal Jatuh Tempo</th>
-                        <th>Dokument Pelengkap</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot>
-
             </table>
         </div>
+    </div>
             <!-- /.box-body -->
 @endsection

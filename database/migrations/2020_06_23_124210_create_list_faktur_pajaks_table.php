@@ -25,8 +25,7 @@ class CreateListFakturPajaksTable extends Migration
             $table->text('bulanpajak');
             $table->text('nominalhpp');
             $table->text('nominalppn');
-            $table->text('keterangan');
-            $table->text('statusfakturpajak');
+            $table->text('ket');
             $table->timestamps();
         });
     }

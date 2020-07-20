@@ -1,12 +1,12 @@
 @extends('master.layout')
 
 @section('content')
-    <div class="box">
+	<div class="box">
         <div class="box-header">
             <h3 class="box-title"><b>Table List Faktur Pajak</b></h3>
         </div>
         <div class="card-body" style="padding:10px">
-            <a href="/listfakturpajak/create" button type="button" class="btn btn-primary badge-pill" style="padding-right:80px,width:80px">Create</a>
+            <a href="/laporan/listfakturpajak/cetaklist" target="_blank" button type="button" class="btn btn-primary badge-pill" style="padding-right:80px,width:80px">Cetak</a>
         </div>
         
         <!-- /.box-header -->
@@ -46,9 +46,8 @@
                         <td>{{$lfp->nominalhpp}}</td>
                         <td>{{$lfp->nominalppn}}</td>
                         <td>
-                            <a href="/listfakturpajak/edit/{{ $lfp->id }}" button type="button" class="btn btn-info badge-pill" style="padding-right:80px,width:80px">Edit</a>
-                            <a href="/listfakturpajak/view/{{ $lfp->id }}" button type="button" class="btn btn-warning badge-pill" style="padding-right:80px,width:80px">View</a>
-                            <a href="/listfakturpajak/delete/{{ $lfp->id }}" button type="button" class="btn btn-danger badge-pill" style="padding-right:80px,width:80px">Delete</a>
+                            <a href="/laporan/listfakturpajak/view/{{ $lfp->id }}" button type="button" class="btn btn-warning badge-pill" style="padding-right:80px,width:80px">View</a>
+                            <!-- <a href="/listfakturpajak/delete/{{ $lfp->id }}" button type="button" class="btn btn-danger badge-pill" style="padding-right:80px,width:80px">Cetak</a> -->
                         </td>
                     </tr>
                 @endforeach
@@ -67,12 +66,11 @@
                         <th>Bulan Pajak</th>
                         <th>Nominal HPP</th>
                         <th>Nominal PPN</th>
-                        <th>Keterangan</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
-
             </table>
         </div>
-            <!-- /.box-body -->
+    </div>
 @endsection
+    

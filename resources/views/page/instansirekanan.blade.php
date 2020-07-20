@@ -18,8 +18,9 @@
                     <th>Instansi Rekanan</th>
                     <th>Alamat</th>
                     <th>NPWP</th>
-                    <th>Nama Contact</th>
-                    <th>Contact</th>
+                    <th>Nama Contact Person</th>
+                    <th>Contact Person</th>
+                    <th>Skala Prioritas</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -30,8 +31,15 @@
                       <td>{{$i->instansi_rekanan}}</td>
                       <td>{{$i->alamat}}</td>
                       <td>{{$i->npwp}}</td>
-                      <td>{{$i->nama_contact}}</td>
+                      <td>{{$i->namecontact}}
                       <td>{{$i->contact_person}}</td>
+                      <td>
+                        @if($i->prioritas == 0)
+                          Tidak
+                        @else
+                          Penting
+                        @endif
+                      </td>
                     </tr>
                   @endforeach
                 </tbody>
@@ -41,8 +49,8 @@
                       <th>Instansi Rekanan</th>
                       <th>Alamat</th>
                       <th>NPWP</th>
-                      <th>Nama Contact</th>
-                      <th>Contact</th>
+                      <th>Nama Contact Person</th>
+                      <th>Contact Person</th>
                     </tr>
                 </tfoot>
               </table>

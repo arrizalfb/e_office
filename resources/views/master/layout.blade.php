@@ -30,7 +30,6 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  <link rel="shortcut icon" href="icon.png">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -38,7 +37,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="/dashboard" class="logo">
+    <a href="../../index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>E</b>O</span>
       <!-- logo for regular state and mobile devices -->
@@ -123,7 +122,7 @@
         </li>
         <li class="{{Request::is('/') ? 'active' : null }}">
           <a href="{{url('/divisi')}}">
-            <i class="fa fa-building-o"></i>
+            <i class="fa fa-files-o"></i>
             <span>Divisi</span>
           </a>
         </li>
@@ -138,6 +137,8 @@
           <ul class="treeview-menu">
             <li class="{{Request::is('/dropdown/dpage1') ? 'active' : null }}"><a href="/jenissuratkeluar"><i class="fa fa-circle-o"></i> Jenis Surat Keluar</a></li>
             <li class="{{Request::is('/dropdown/dpage2') ? 'active' : null }}"><a href="/listsuratkeluar"><i class="fa fa-circle-o"></i> List Surat Keluar</a></li>
+            <li class="{{Request::is('/dropdown/dpage3') ? 'active' : null }}"><a href="/laporan/listsuratkeluar"><i class="fa fa-circle-o"></i> Laporan</a></li>
+
           </ul>
         </li>
         <li class="treeview">
@@ -149,31 +150,41 @@
           </a>
           <ul class="treeview-menu">
             <li class="{{Request::is('/dropdown/dpage4') ? 'active' : null }}"><a href="/listsuratmasuk"><i class="fa fa-circle-o"></i> List Surat Masuk</a></li>
+            <li class="{{Request::is('/dropdown/dpage5') ? 'active' : null }}"><a href="/laporan/listsuratmasuk"><i class="fa fa-circle-o"></i> Laporan</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-table"></i> <span>Produk/Layanan</span>
+            <i class="fa fa-share"></i> <span>Penagihan</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{Request::is('/dropdown/dpage7') ? 'active' : null }}"><a href="/jenisproduklayanan"><i class="fa fa-circle-o"></i> Jenis Produk/Layanan</a></li>
-            <li class="{{Request::is('/dropdown/dpage8') ? 'active' : null }}"><a href="/listtagihanproduklayanan"><i class="fa fa-circle-o"></i> List Tagihan Produk/Layanan</a></li>
+              <li class="treeview">
+                <a href="#"><i class="fa fa-circle-o"></i>Produk/Layanan
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                  <li class="{{Request::is('/dropdown/dpage7') ? 'active' : null }}"><a href="/jenisproduklayanan"><i class="fa fa-circle-o"></i> Jenis Produk/Layanan</a></li>
+                  <li class="{{Request::is('/dropdown/dpage8') ? 'active' : null }}"><a href="/listtagihanproduklayanan"><i class="fa fa-circle-o"></i> List Tagihan Produk/Layanan</a></li>
+                  <li class="{{Request::is('/dropdown/dpage9') ? 'active' : null }}"><a href="/laporan/listtagihanproduklayanan"><i class="fa fa-circle-o"></i> Laporan</a></li>
+                </ul>
+              </li>
+              <li class="treeview">
+                <a href="#"><i class="fa fa-circle-o"></i>Project
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu">
+                  <li class="{{Request::is('/dropdown/dpage12') ? 'active' : null }}"><a href="/listtagihanproject"><i class="fa fa-circle-o"></i> List Tagihan Project</a></li>
+                  <li class="{{Request::is('/dropdown/dpage13') ? 'active' : null }}"><a href="/laporan/listtagihanproject"><i class="fa fa-circle-o"></i> Laporan</a></li>
+                </ul>
+              </li>
           </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Project</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="{{Request::is('/dropdown/dpage12') ? 'active' : null }}"><a href="/listtagihanproject"><i class="fa fa-circle-o"></i> List Tagihan Project</a></li>
-          </ul>
-        </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-share"></i> <span>Faktur Pajak</span>
@@ -183,6 +194,7 @@
           </a>
           <ul class="treeview-menu">
             <li class="{{Request::is('/dropdown/dpage16') ? 'active' : null }}"><a href="/listfakturpajak"><i class="fa fa-circle-o"></i> List Faktur Pajak</a></li>
+            <li class="{{Request::is('/dropdown/dpage16') ? 'active' : null }}"><a href="/laporan/listfakturpajak"><i class="fa fa-circle-o"></i> Laporan</a></li>
             </li>           
           </ul>
         </li>

@@ -16,9 +16,30 @@ class ListSuratMasukController extends Controller
     {
         $listsuratmasuk = ListSuratMasuk::all();
         
-        return view ('page.dropdown4',['listsuratmasuk'=>$listsuratmasuk]);
-
+        return view ('page.dropdown4',compact('listsuratmasuk'));
     }
+
+    public function laporanindex()
+    {
+        $listsuratmasuk = ListSuratMasuk::all();
+
+        return view ('page.laporanlistsuratmasuk',compact('listsuratmasuk'));
+    }
+
+    public function cetaklist()
+    {
+        $listsuratmasuk = ListSuratMasuk::all();
+
+        return view ('page.cetaklaporanlistsuratmasuk',compact('listsuratmasuk'));
+    }
+
+    // public function cetaksatu($id)
+    // {
+    //     $suratmasuk = ListSuratMasuk::all();
+
+    //     return view ('page.cetaklistsuratmasuk',compact('suratmasuk'));
+    // }
+
 
     /**
      * Show the form for creating a new resource.
@@ -27,11 +48,13 @@ class ListSuratMasukController extends Controller
      */
     public function create()
     {
+        $listsuratmasuk = ListSuratMasuk::all();
+
         //untuk mengurutkan nomor
         $max = ListSuratMasuk::max('id');
         $max = $max + 1;
 
-        return view ('page.createlistsuratmasuk', ['max'=>$max]);
+        return view ('page.createlistsuratmasuk', compact('listsuratmasuk','max'));
     }
 
     /**
@@ -70,8 +93,19 @@ class ListSuratMasukController extends Controller
      */
     public function show($id)
     {
+        $laporanlistsuratmasuk = ListSuratMasuk::find($id);
+
         $suratmasuk = ListSuratMasuk::find($id);
-        return view('page.readlistsuratmasuk', ['suratmasuk'=>$suratmasuk]);
+
+        return view('page.readlistsuratmasuk', compact('laporanlistsuratmasuk','suratmasuk'));
+    }
+
+    //untuk view laporan
+    public function read($id)
+    {
+        $suratmasuk = ListSuratMasuk::find($id);
+
+        return view('page.readlaporanlistsuratmasuk', compact('suratmasuk'));
     }
 
     /**

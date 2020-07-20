@@ -14,28 +14,46 @@ class InstansiController extends Controller
 
     }
     public function create(){
+        $instansi = Instansi::all();
+
         //untuk mengurutkan nomor
         $max = Instansi::max('id');
         $max = $max + 1;
 
-        return view ('page.createinstansi');
+        return view ('page.createinstansi', compact('instansi'));
     }
     public function save(Request $request){
+        
+        //diambil dari html name
         $this->validate($request,[
             'instansirekanan'=>'required',
             'alamat'=>'required',
             'npwp'=>'required',
-            'nama_contact'=>'required',
-            'contact'=>'required'
+            'contact'=>'required',
+            'namecontact'=>'required'
         ]);
 
+        //dari database
         Instansi::create([
             'instansi_rekanan'=>$request->instansirekanan,
             'alamat'=>$request->alamat,
             'npwp'=>$request->npwp,
-            'nama_contact'=>$request->nama_contact,
-            'contact_person'=>$request->contact
+            'contact_person'=>$request->contact,
+            'prioritas'=>$request->skala,
+            'namecontact'=>$request->namecontact
         ]);
         return redirect('/instansi');
+    }
+    public function edit($id)
+    {
+        //
+    }
+    
+    public function update($id){
+        //
+    }
+    
+    public function delete($id){
+        //
     }
 }

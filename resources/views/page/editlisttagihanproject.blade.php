@@ -17,17 +17,8 @@
                     <option id="statusdokument" name="statusdokument" value="-----Pilih-----">-----Pilih-----</option>
                     <option id="statusdokument" name="statusdokument" value="Belum Dikirim">Belum Dikirim</option>
                     <option id="statusdokument" name="statusdokument" value="Dikirim Via Email">Dikirim Via Email</option>
-                    <optgroup label="Dikirim Via Social Chat">
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via social chat | Line">Line</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via social chat | WhatsApp">WhatsApp</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via social chat | Telegram">Telegram</option>
-                    </optgroup>
-                    <optgroup label="Dikirim Via Ekspedisi">
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi | POS Indonesia">POS Indonesia</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi | JNE">JNE</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi | SiCepat">SiCepat</option>
-                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi | J&T">J&T</option>
-                    </optgroup>
+                    <option id="statusdokument" name="statusdokument" value="Dikirim via social chat">Dikirim Via Social Chat</option>
+                    <option id="statusdokument" name="statusdokument" value="Dikirim Via Ekspedisi">Dikirim Via Ekspedisi</option>
                     <option id="statusdokument" name="statusdokument" value="Sudah Diterima">Sudah Diterima</option>
                   </select>
                 </div>
@@ -51,11 +42,7 @@
                 </div>
                 <div class="form-group">
                   <label for="nominalhpp">Nominal HPP </label>
-                  <input type="text" class="form-control" value="{{$listproject->nominalhpp}}"id="nominalhpp" name="nominalhpp" placeholder="Nominal HPP">
-                </div>
-                <div class="form-group">
-                  <label for="ppn">Nominal PPN </label>
-                  <input type="text" class="form-control" value="{{$listproject->ppn}}"id="ppn" name="ppn" placeholder="Nominal PPN">
+                  <input type="text" class="form-control" value="{{$listproject->nominalhpp}}"id="nominalhpp" name="nominalhpp" placeholder="Instansi Rekanan">
                 </div>
                 <div class="form-group">
                   <label for="tanggaljatuhtempo">Tanggal Jatuh Tempo </label>

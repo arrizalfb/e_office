@@ -3,10 +3,10 @@
 @section('content')
   <div class="box">
     <div class="box-header">
-        <h3 class="box-title"><b>Table List Surat Keluar</b></h3>
+        <h3 class="box-title"><b>Laporan List Surat Keluar</b></h3>
     </div>
     <div class="card-body" style="padding:10px">
-      <a href="/listsuratkeluar/create" button type="button" class="btn btn-primary badge-pill" style="padding-right:80px,width:80px">Create</a>
+      <a href="/laporan/listsuratkeluar/cetaklist" target="_blank" button type="button" class="btn btn-primary badge-pill" style="padding-right:80px,width:80px">Cetak</a>
     </div>
 
     <!-- /.box-header -->
@@ -37,9 +37,8 @@
             <td>{{$lsk->penanggungjawab}}</td>
             <td>{{$lsk->statussuratkeluar}}</td>
             <td>
-                <a href="/listsuratkeluar/edit/{{ $lsk->id }}" button type="button" class="btn btn-info badge-pill" style="padding-right:80px,width:80px">Edit</a>
-                <a href="/listsuratkeluar/view/{{ $lsk->id }}" button type="button" class="btn btn-warning badge-pill" style="padding-right:80px,width:80px">View</a>
-                <a href="/listsuratkeluar/delete/{{ $lsk->id }}" button type="button" class="btn btn-danger badge-pill" style="padding-right:80px,width:80px">Delete</a>
+                <a href="/laporan/listsuratkeluar/view/{{ $lsk->id }}" button type="button" class="btn btn-warning badge-pill" style="padding-right:80px,width:80px">View</a>
+                <!-- <a href="/laporan/listsuratkeluar/cetaksatu/{{ $lsk->id }}" target="_blank" button type="button" class="btn btn-danger badge-pill" style="padding-right:80px,width:80px">Cetak</a> -->
             </td>
           </tr>
           @endforeach
@@ -57,9 +56,4 @@
         </tfoot> 
       </table>
     </div>
-    <!-- /.box-body -->
-
-    <!-- <script>
-    window.print();
-  </script> -->
-@endsection
+    @endsection

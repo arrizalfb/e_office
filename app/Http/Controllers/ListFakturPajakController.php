@@ -20,6 +20,27 @@ class ListFakturPajakController extends Controller
         return view ('page.dropdown16',['listfakturpajak'=>$listfakturpajak]);
     }
 
+    public function laporanindex()
+    {
+        $listfakturpajak = ListFakturPajak::all();
+        
+        return view ('page.laporanlistfakturpajak',['listfakturpajak'=>$listfakturpajak]);
+    }
+
+    public function cetaklist()
+    {
+        $listfakturpajak = ListFakturPajak::all();
+        
+        return view ('page.cetaklaporanlistpajak',['listfakturpajak'=>$listfakturpajak]);
+    }
+
+    // public function cetaksatu()
+    // {
+    //     $listfakturpajak = ListFakturPajak::all();
+        
+    //     return view ('page.cetaklistpajak',['listfakturpajak'=>$listfakturpajak]);
+    // }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,6 +48,8 @@ class ListFakturPajakController extends Controller
      */
     public function create()
     {
+        $listfakturpajak = ListFakturPajak::all();
+
         //untuk mengurutkan nomor
         $max = ListFakturPajak::max('id');
         $max = $max + 1;
@@ -34,7 +57,7 @@ class ListFakturPajakController extends Controller
         //memanggil variabel dari instansi
         $instansi = Instansi::all();
         
-        return view ('page.createlistfakturpajak',['instansi'=>$instansi], ['max'=>$max]);
+        return view ('page.createlistfakturpajak',compact('listfakturpajak','instansi','max'));
     }
 
     /**
@@ -45,18 +68,18 @@ class ListFakturPajakController extends Controller
      */
     public function store(Request $request)
     {
-        //memanggil dari createlistsuratmasuk dengan variabel name
-        $this->validate($request,[
-            'nofakturpajak'=>'required',
-            'tanggalfakturpajak'=>'required',
-            'nokwitansi'=>'required',
-            'noinvoice'=>'required',
-            'perihal'=>'required',
-            'bulanpajak'=>'required',
-            'nominalhpp'=>'required',
-            'nominalppn'=>'required',
-            'keterangan'=>'required'
-        ]);
+        // //memanggil dari createlistsuratmasuk dengan variabel name
+        // $this->validate($request,[
+        //     'nofakturpajak'=>'required',
+        //     'tanggalfakturpajak'=>'required',
+        //     'nokwitansi'=>'required',
+        //     'noinvoice'=>'required',
+        //     'perihal'=>'required',
+        //     'bulanpajak'=>'required',
+        //     'nominalhpp'=>'required',
+        //     'nominalppn'=>'required',
+        //     'keterangan'=>'required'
+        // ]);
         
         //memanggil dari createlistsuratmasuk dengan variabel id
         ListFakturPajak::create([
@@ -86,7 +109,15 @@ class ListFakturPajakController extends Controller
     public function show($id)
     {
         $listfakturpajak = ListFakturPajak::find($id);
+
         return view('page.readlistfakturpajak ', ['listfakturpajak'=>$listfakturpajak ]);
+    }
+
+    public function read($id)
+    {
+        $listfakturpajak = ListFakturPajak::find($id);
+
+        return view('page.readlaporanlistfakturpajak ', ['listfakturpajak'=>$listfakturpajak ]);
     }
 
     /**

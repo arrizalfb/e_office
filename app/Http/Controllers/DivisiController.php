@@ -7,28 +7,96 @@ use App\Divisi;
 
 class DivisiController extends Controller
 {
-    public function index(){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         $divisi = Divisi::all();
+        
         return view ('page.divisi',['divisi'=>$divisi]);
-
     }
-    public function create(){
-        //untuk mengurutkan nomor
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $divisi = Divisi::all();
+
         $max = Divisi::max('id');
         $max = $max + 1;
 
-        return view ('page.createdivisi');
+        return view ('page.createdivisi', compact('divisi'));
     }
-    public function save(Request $request){
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         $this->validate($request,[
-            'jenis_divisi'=>'required',
-            'inisial_divisi'=>'required'
+            'inisialdevisi'=>'required',
+            'jenisdivisi'=>'required',
         ]);
 
+        //dari database
         Divisi::create([
-            'jenis_divisi'=>$request->jenis_divisi,
-            'inisial_divisi'=>$request->inisial_divisi
+            'inisialdevisi'=>$request->inisialdevisi,
+            'jenisdivisi'=>$request->jenisdivisi,
         ]);
         return redirect('/divisi');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

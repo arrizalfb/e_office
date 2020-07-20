@@ -46,14 +46,10 @@
                   <label for="dokumentpelengkap">Dokument Pelengkap</label>
                   <input type="text" class="form-control" value="{{$listtagihanproduklayanan->dokumenpelengkap}}" id="dokumentpelengkap" name="dokumentpelengkap" placeholder="Dokument Pelengkap" readonly>
                 </div>
-                <div class="form-group">
-                  <label for="keterangan">Keterangan</label>
-                  <textarea rows="7" class="form-control" value="" id="keterangan" name="keterangan" placeholder="Keterangan" readonly>{{$listtagihanproduklayanan->keterangan}}</textarea>
-                </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
-              <a href="/listtagihanproduklayanan" button type="button" class="btn btn-primary badge-pill" style="padding-right:80px,width:80px">Back</a>
+              <a href="/laporan/listtagihanproduklayanan" button type="button" class="btn btn-primary badge-pill" style="padding-right:80px,width:80px">Back</a>
               </div>
             </form>
           </div>

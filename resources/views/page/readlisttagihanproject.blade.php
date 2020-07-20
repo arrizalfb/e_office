@@ -6,46 +6,45 @@
               <h3 class="box-title"><b>Laporan Tagihan Project</b></h3>
             </div>
             <!-- /.box-header -->
-            
             <!-- form start -->
             <form method="post" action="/listtagihanproject/save">
             {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group, col-md-6">
                   <label for="statusdokument">Status Dokument Project</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->statusdokument}}" id="statusdokument" name="statusdokument" placeholder="Status Dokument Project" disabled>
+                  <input type="text" class="form-control" value="{{$listtagihanproject->statusdokument}}" id="statusdokument" name="statusdokument" placeholder="Status Dokument Project" readonly>
                 </div>
                 <div class="form-group, col-md-6">
                   <label for="statustagihan">Status Tagihan Project</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->statustagihan}}" id="statustagihan" name="statustagihan" placeholder="Status Tagihan Project" disabled>
+                  <input type="text" class="form-control" value="{{$listtagihanproject->statustagihan}}" id="statustagihan" name="statustagihan" placeholder="Status Tagihan Project" readonly>
                 </div>
                 <div class="form-group">
                   <label for="instansirekanan">Intansi Rekanan</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->instansirekanan}}" id="instansirekanan" name="instansirekanan" placeholder="Intansi Rekanan" disabled>
+                  <input type="text" class="form-control" value="{{$listtagihanproject->instansirekanan}}" id="instansirekanan" name="instansirekanan" placeholder="Intansi Rekanan" readonly>
                 </div>
                 <div class="form-group">
                   <label for="tanggaltagihan">Tanggal Tagihan</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->tanggaltagihan}}" id="tanggaltagihan" name="tanggaltagihan" placeholder="Tanggal Tagihan" disabled>
+                  <input type="text" class="form-control" value="{{$listtagihanproject->tanggaltagihan}}" id="tanggaltagihan" name="tanggaltagihan" placeholder="Tanggal Tagihan" readonly>
                 </div>
                 <div class="form-group">
                   <label for="nominalhpp">Nominal HPP</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->nominalhpp}}" id="nominalhpp" name="nominalhpp" placeholder="Nominal HPP" disabled>
+                  <input type="text" class="form-control" value="{{$listtagihanproject->nominalhpp}}" id="nominalhpp" name="nominalhpp" placeholder="Nominal HPP" readonly>
                 </div>
                 <div class="form-group">
                   <label for="nominalppn">Nominal PPN</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->ppn}}" id="nominalppn" name="nominalppn" placeholder="Nominal PPN" disabled>
+                  <input type="text" class="form-control" value="{{$listtagihanproject->ppn}}" id="nominalppn" name="nominalppn" placeholder="Nominal PPN" readonly>
                 </div>
                 <div class="form-group">
                   <label for="tanggaljatuhtempo">Tanggal Jatuh Tempo</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->tanggaljatuhtempo}}" id="tanggaljatuhtempo" name="tanggaljatuhtempo" placeholder="Tanggal Jatuh Tempo" disabled>
+                  <input type="text" class="form-control" value="{{$listtagihanproject->tanggaljatuhtempo}}" id="tanggaljatuhtempo" name="tanggaljatuhtempo" placeholder="Tanggal Jatuh Tempo" readonly>
                 </div>
                 <div class="form-group">
                   <label for="dokumentpelengkap">Dokument Pelengkap</label>
-                  <input type="text" class="form-control" value="{{$listtagihanpoject->dokumentpelengkap}}" id="dokumentpelengkap" name="dokumentpelengkap" placeholder="Dokument Pelengkap" disabled>
+                  <input type="text" class="form-control" value="{{$listtagihanproject->dokumentpelengkap}}" id="dokumentpelengkap" name="dokumentpelengkap" placeholder="Dokument Pelengkap" readonly>
                 </div>
                 <div class="form-group">
                   <label for="keterangan">Keterangan</label>
-                  <textarea rows="7" class="form-control" value="" id="keterangan" name="keterangan" placeholder="Keterangan" disabled>{{$listtagihanpoject->keterangan}}</textarea>
+                  <textarea rows="7" class="form-control" value="" id="keterangan" name="keterangan" placeholder="Keterangan" readonly>{{$listtagihanproject->keterangan}}</textarea>
                 </div>
               <!-- /.box-body -->
 

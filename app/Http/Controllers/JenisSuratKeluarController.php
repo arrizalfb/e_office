@@ -28,10 +28,12 @@ class JenisSuratKeluarController extends Controller
     public function create()
     {
         //untuk mengurutkan nomor
+        $jenissuratkeluar = JenisSuratKeluar::all();
+        
         $max = JenisSuratKeluar::max('id');
         $max = $max + 1;
         
-        return view ('page.createjenissuratkeluar', ['max'=>$max]);
+        return view ('page.createjenissuratkeluar', compact('max', 'jenissuratkeluar'));
     }
 
     /**
@@ -104,7 +106,7 @@ class JenisSuratKeluarController extends Controller
         //memanggil inisialisasi dari edit dan membuat variabel baru yang akan di masukkan ke database
         $suratkeluar = JenisSuratKeluar::find($id);
 
-        
+        $suratkeluar->no_urut_surat = $request->nourutsurat;
         $suratkeluar->jenissurat = $request->jenissurat;
         $suratkeluar->inisialjenissurat = $request->inisialjenissurat;
         $suratkeluar->keterangan = $request->keterangan;

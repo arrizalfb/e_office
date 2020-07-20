@@ -17,8 +17,30 @@ class ListTagihanProdukLayananController extends Controller
     {
         $listtagihanproduklayanan = ListTagihanProdukLayanan::all();
         
-        return view ('page.dropdown8',['listtagihanproduklayanan'=>$listtagihanproduklayanan]);
+        return view ('page.dropdown8',compact('listtagihanproduklayanan'));
     }
+
+    public function laporanindex()
+    {
+        $listtagihanproduklayanan = ListTagihanProdukLayanan::all();
+        
+        return view ('page.laporanlisttagihanproduk', compact('listtagihanproduklayanan'));
+    }
+
+    public function cetaklist()
+    {
+        $listtagihanproduklayanan = ListTagihanProdukLayanan::all();
+        
+        return view ('page.cetaklaporanlisttagihanproduk', compact('listtagihanproduklayanan'));
+    }
+
+    // public function cetaksatu()
+    // {
+    //     $listtagihanproduklayanan = ListTagihanProdukLayanan::all();
+        
+    //     return view ('page.cetaklisttagihanproduk', compact('listtagihanproduklayanan'));
+    // }
+
 
     /**
      * Show the form for creating a new resource.
@@ -27,6 +49,8 @@ class ListTagihanProdukLayananController extends Controller
      */
     public function create()
     {
+        $listtagihanproduklayanan = ListTagihanProdukLayanan::all();
+
         //untuk mengurutkan nomor
         $max = ListTagihanProdukLayanan::max('id');
         $max = $max + 1;
@@ -34,7 +58,7 @@ class ListTagihanProdukLayananController extends Controller
         //memanggil variabel dari instansi
         $instansi = Instansi::all();
 
-        return view ('page.createlisttagihanproduklayanan',['instansi'=>$instansi], ['max'=>$max]);
+        return view ('page.createlisttagihanproduklayanan', compact('listtagihanproduklayanan','instansi','max'));
     }
 
     /**
@@ -68,10 +92,11 @@ class ListTagihanProdukLayananController extends Controller
         //memanggil dari createjenissurat dengan variabel name
         ListTagihanProdukLayanan::create([
             'instansirekanan'=>$request->instansi,
+            'bulantagihan'=>$bulan,
             'tanggaltagihan'=>$request->tanggaltagihan,
-            'hpp'=>$request->nominalhpp,
+            'nominalhpp'=>$request->nominalhpp,
             'ppn'=>$ppn,
-            'jatuhtempo'=>$request->jatuhtempo,
+            'tanggaljatuhtempo'=>$request->jatuhtempo,
             'dokumenpelengkap'=>$dokumen,
             'keterangan'=>$request->keterangan,
             'statusdokument'=>'',
@@ -88,8 +113,18 @@ class ListTagihanProdukLayananController extends Controller
      */
     public function show($id)
     {
+        $laporanlisttagihanproduk = ListTagihanProdukLayanan::find($id);
+
         $listtagihanproduklayanan = ListTagihanProdukLayanan::find($id);
-        return view('page.readlisttagihanproduklayanan ', ['listtagihanproduklayanan'=>$listtagihanproduklayanan ]);
+
+        return view('page.readlisttagihanproduklayanan', compact('listtagihanproduklayanan','laporanlisttagihanproduk'));
+    }
+
+    public function read($id)
+    {
+        $listtagihanproduklayanan = ListTagihanProdukLayanan::find($id);
+
+        return view('page.readlaporanlisttagihanproduk', compact('listtagihanproduklayanan'));
     }
 
     /**
@@ -115,21 +150,20 @@ class ListTagihanProdukLayananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $this->validate($request,[
-        //     'instansirekanan'=>'required',
-        //     'tanggaltagihan'=>'required',
-        //     'hpp'=>'required',
-        //     'tanggaljatuhtempo'=>'required',
-        //     'dokumenpelengkap'=>'required',
-        //     'keterangan'=>'required',
-        // ]);
+        $this->validate($request,[
+            'instansirekanan'=>'required',
+            'tanggaltagihan'=>'required',
+            'nominalhpp'=>'required',
+            'tanggaljatuhtempo'=>'required',
+            'dokumenpelengkap'=>'required',
+            'keterangan'=>'required',
+        ]);
 
         $listtagihan = ListTagihanProdukLayanan::find($id);
         $listtagihan->instansirekanan = $request->instansirekanan;
         $listtagihan->tanggaltagihan = $request->tanggaltagihan;
-        $listtagihan->hpp = $request->hpp;
-        $listtagihan->ppn = $request->ppn;
-        $listtagihan->jatuhtempo = $request->jatuhtempo;
+        $listtagihan->nominalhpp = $request->nominalhpp;
+        $listtagihan->tanggaljatuhtempo = $request->tanggaljatuhtempo;
         $listtagihan->dokumenpelengkap = $request->dokumenpelengkap;
         $listtagihan->keterangan = $request->keterangan;
         $listtagihan->statusdokument = $request->statusdokument;

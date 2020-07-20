@@ -20,6 +20,27 @@ class ListTagihanProjectController extends Controller
         return view ('page.dropdown12',['listtagihanproject'=>$listtagihanproject]);
     }
 
+    public function laporanindex()
+    {
+        $listtagihanproject = ListTagihanProject::all();
+        
+        return view ('page.laporanlistproject', compact('listtagihanproject'));
+    }
+
+    public function cetaklist()
+    {
+        $listtagihanproject = ListTagihanProject::all();
+        
+        return view ('page.cetaklaporanlistproject', compact('listtagihanproject'));
+    }
+
+    // public function cetaksatu()
+    // {
+    //     $listtagihanproject = ListTagihanProject::all();
+        
+    //     return view ('page.cetaklistproject', compact('listtagihanproject'));
+    // }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,6 +48,8 @@ class ListTagihanProjectController extends Controller
      */
     public function create()
     {
+        $listtagihanproject = ListTagihanProject::all();
+
         //untuk mengurutkan nomor
         $max = ListTagihanProject::max('id');
         $max = $max + 1;
@@ -34,7 +57,7 @@ class ListTagihanProjectController extends Controller
         //memanggil variabel dari instansi
         $instansi = Instansi::all();
         
-        return view ('page.createlisttagihanproject',['instansi'=>$instansi], ['max'=>$max]);
+        return view ('page.createlisttagihanproject',compact('listtagihanproject','instansi','max'));
     }
 
     /**
@@ -64,6 +87,7 @@ class ListTagihanProjectController extends Controller
         //memanggil dari createjenissurat dengan variabel name
         ListTagihanProject::create([
             'instansirekanan'=>$request->instansi,
+            'bulantagihan'=>$bulan,
             'tanggaltagihan'=>$request->tanggaltagihan,
             'nominalhpp'=>$request->nominalhpp,
             'ppn'=>$ppn,
@@ -84,8 +108,18 @@ class ListTagihanProjectController extends Controller
      */
     public function show($id)
     {
-        $listtagihanpoject = ListTagihanProject::find($id);
-        return view('page.readlisttagihanpoject ', ['listtagihanpoject'=>$listtagihanpoject ]);
+        $laporanlistproject = ListTagihanProject::find($id);
+
+        $listtagihanproject = ListTagihanProject::find($id);
+
+        return view('page.readlisttagihanproject ', compact('laporanlistproject','listtagihanproject'));
+    }
+
+    public function read($id)
+    {
+        $listtagihanproject = ListTagihanProject::find($id);
+
+        return view('page.readlaporanlistproject', compact('listtagihanproject'));
     }
 
     /**

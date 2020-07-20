@@ -22,7 +22,6 @@ class CreateListSuratKeluarsTable extends Migration
             $table->text('perusahaan');
             $table->text('penanggungjawab');
             $table->text('keterangan');
-            $table->text('statussuratkeluar');
             $table->timestamps();
         });
     }

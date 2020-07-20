@@ -16,14 +16,13 @@ class CreateListTagihanProdukLayanansTable extends Migration
         Schema::create('list_tagihan_produk_layanans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('instansirekanan');
+            $table->text('bulantagihan');
             $table->text('tanggaltagihan');
             $table->text('hpp');
             $table->text('ppn');
             $table->text('jatuhtempo');
-            $table->text('dokumenpelengkap');
+            $table->text('dokumentpelengkap');
             $table->text('keterangan');
-            $table->text('statusdokument');
-            $table->text('statustagihan');
             $table->timestamps();
         });
     }

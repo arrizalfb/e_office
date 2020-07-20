@@ -16,7 +16,7 @@ class JenisProdukLayananController extends Controller
     {
         $jenisproduklayanan = JenisProdukLayanan::all();
         
-        return view ('page.dropdown7',['jenisproduklayanan'=>$jenisproduklayanan]);
+        return view ('page.dropdown7',['jenisproduklayanan'=>$jenisproduklayanan], );
     }
 
     /**
@@ -26,11 +26,13 @@ class JenisProdukLayananController extends Controller
      */
     public function create()
     {
+        $jenisproduklayanan = JenisProdukLayanan::all();
+
         //untuk mengurutkan nomor
         $max = JenisProdukLayanan::max('id');
         $max = $max + 1;
 
-        return view ('page.createjenisproduklayanan', ['max'=>$max]);
+        return view ('page.createjenisproduklayanan', compact('jenisproduklayanan','max'));
     }
 
     /**

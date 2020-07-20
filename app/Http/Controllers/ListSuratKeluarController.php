@@ -19,8 +19,29 @@ class ListSuratKeluarController extends Controller
     {
         $listsuratkeluar = ListSuratKeluar::all();
         
-        return view ('page.dropdown2',['listsuratkeluar'=>$listsuratkeluar]);
+        return view ('page.dropdown2',compact('listsuratkeluar'));
     }
+
+    public function laporanindex()
+    {
+        $listsuratkeluar = ListSuratKeluar::all();
+        
+        return view ('page.laporanlistsuratkeluar',['listsuratkeluar'=>$listsuratkeluar]);
+    }
+
+    public function cetaklist()
+    {
+        $listsuratkeluar = ListSuratKeluar::all();
+        
+        return view ('page.cetaklaporanlistsuratkeluar',['listsuratkeluar'=>$listsuratkeluar]);
+    }
+
+    // public function cetaksatu($id)
+    // {
+    //     $suratkeluar = ListSuratKeluar::find($id);
+
+    //     return view('page.cetaklistsuratkeluar', compact('suratkeluar'));
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -29,6 +50,8 @@ class ListSuratKeluarController extends Controller
      */
     public function create()
     {
+         $listsuratkeluar = ListSuratKeluar::all();
+
          //untuk mengurutkan nomor
          $max = ListSuratKeluar::max('id');
          $max = $max + 1;
@@ -39,7 +62,7 @@ class ListSuratKeluarController extends Controller
          //memanggil variabale dari jenis surat
          $jenissurat = JenisSuratKeluar::all();
 
-         return view ('page.createlistsuratkeluar', compact('max', 'jenissurat', 'instansi'));
+         return view ('page.createlistsuratkeluar', compact('max', 'jenissurat', 'instansi','listsuratkeluar'));
     }
 
     /**
@@ -70,7 +93,6 @@ class ListSuratKeluarController extends Controller
             'jenissurat'=>$request->jenissurat,
             'perihal'=>$request->perihal,
             'tujuan'=>$request->instansi,
-            'perusahaan'=>$request->perusahaan,
             'penanggungjawab'=>$request->penanggungjawab,
             'keterangan'=>$request->keterangan,
             'statussuratkeluar'=>''
@@ -86,8 +108,19 @@ class ListSuratKeluarController extends Controller
      */
     public function show($id)
     {
+        $laporanlistsuratkeluar = ListSuratKeluar::find($id);
+
         $suratkeluar = ListSuratKeluar::find($id);
-        return view('page.readlistsuratkeluar', ['suratkeluar'=>$suratkeluar]);
+
+        return view('page.readlistsuratkeluar', compact('suratkeluar','laporanlistsuratkeluar'));
+    }
+
+    //untuk view laporan
+    public function read($id)
+    {
+        $suratkeluar = ListSuratKeluar::find($id);
+
+        return view('page.readlaporanlistsuratkeluar', compact('suratkeluar'));
     }
 
     /**
@@ -130,7 +163,6 @@ class ListSuratKeluarController extends Controller
         $listkeluar->jenissurat = $request->jenissurat;
         $listkeluar->perihal = $request->perihal;
         $listkeluar->tujuan = $request->tujuan;
-        $listkeluar->perusahaan = $request->perusahaan;
         $listkeluar->penanggungjawab = $request->penanggungjawab;
         $listkeluar->keterangan = $request->keterangan;
         $listkeluar->statussuratkeluar = $request->statussuratkeluar;

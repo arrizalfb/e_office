@@ -24,8 +24,8 @@
                   @foreach($divisi as $d)
                     <tr>
                       <td>{{$d->id}}</td>
-                      <td>{{$d->jenis_divisi}}</td>
-                      <td>{{$d->inisial_divisi}}</td>
+                      <td>{{$d->jenisdivisi}}</td>
+                      <td>{{$d->inisialdevisi}}</td>
                     </tr>
                   @endforeach
                 </tbody>
