@@ -19,7 +19,6 @@ class CreateJenisSuratKeluarsTable extends Migration
             $table->text('jenissurat');
             $table->text('inisialjenissurat');
             $table->text('keterangan');
-            $table->text('statussuratkeluar');
             $table->timestamps();
         });
     }
