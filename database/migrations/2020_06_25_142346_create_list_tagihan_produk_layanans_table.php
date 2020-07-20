@@ -20,7 +20,7 @@ class CreateListTagihanProdukLayanansTable extends Migration
             $table->text('tanggaltagihan');
             $table->text('nominalhpp');
             $table->text('ppn');
-            $table->text('jatuhtempo');
+            $table->text('tanggaljatuhtempo');
             $table->text('dokumentpelengkap');
             $table->text('keterangan');
             $table->timestamps();
