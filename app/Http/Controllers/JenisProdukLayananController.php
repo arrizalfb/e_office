@@ -16,7 +16,7 @@ class JenisProdukLayananController extends Controller
     {
         $jenisproduklayanan = JenisProdukLayanan::all();
         
-        return view ('page.dropdown7',['jenisproduklayanan'=>$jenisproduklayanan], );
+        return view ('page.dropdown7',['jenisproduklayanan'=>$jenisproduklayanan]);
     }
 
     /**
