@@ -5,31 +5,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\JenisSuratKeluar;
 use App\Instansi;
+use App\Divisi;
 
 class JenisSuratKeluarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $jenissuratkeluar = JenisSuratKeluar::all();
         $instansi = Instansi::all();
+        $divisi = Divisi::all();
+        $inisialjenissurat = JenisSuratKeluar::all();
 
         $max = JenisSuratKeluar::max('id');
         $max = $max + 1;
         
-        return view ('page.dropdown1',compact('jenissuratkeluar', 'instansi', 'max'));
+        return view ('page.dropdown1',compact('jenissuratkeluar', 'instansi', 'max', 'divisi'));
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function statussurat()
+    {
+        $jenissuratkeluar = JenisSuratKeluar::all();
+
+        return view('page.dropdown3', compact('jenissuratkeluar'));
+    }
+
     public function create()
     {
         //untuk mengurutkan nomor
@@ -41,25 +41,20 @@ class JenisSuratKeluarController extends Controller
         return view ('page.createjenissuratkeluar', compact('max', 'jenissuratkeluar'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //memanggil dari createjenissurat dengan variabel name
-        $this->validate($request,[
-            'noromawijenissurat'=>'required',
-            'suratjenis'=>'required',
-            'inisialjenissurat'=>'required',
-            'ket'=>'required'
-        ]);
-        
+        // $this->validate($request,[
+        //     'noromawijenissurat'=>'required',
+        //     'suratjenis'=>'required',
+        //     'inisialjenissurat'=>'required',
+        //     'ket'=>'required'
+        // ]);
+        $nosurat = $request->nosurat.'/'.$request->divnosurat.$request->noromawijenissurat;
+       
         //memanggil dari createjenissurat dengan variabel naem dan dimasukkan ke database
         JenisSuratKeluar::create([
-            'noromawijenissurat'=>$request->noromawijenissurat,
+            'noromawijenissurat'=>$nosurat,
             'jenissurat'=>$request->suratjenis,
             'inisialjenissurat'=>$request->inisialjenissurat,
             'keterangan'=>$request->ket,
@@ -67,23 +62,11 @@ class JenisSuratKeluarController extends Controller
         return redirect('/jenissuratkeluar');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $suratkeluar = JenisSuratKeluar::find($id);
@@ -92,13 +75,6 @@ class JenisSuratKeluarController extends Controller
         return view('page.editjenissuratkeluar', ['suratkeluar'=>$suratkeluar]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         // $this->validate($request,[
@@ -111,22 +87,16 @@ class JenisSuratKeluarController extends Controller
         //memanggil inisialisasi dari edit dan membuat variabel baru yang akan di masukkan ke database
         $suratkeluar = JenisSuratKeluar::find($id);
 
-        $suratkeluar->no_urut_surat = $request->nourutsurat;
-        $suratkeluar->jenissurat = $request->jenissurat;
+        //$suratkeluar->no_urut_surat = $request->nourutsurat;
+        $suratkeluar->jenissurat = $request->suratjenis;
         $suratkeluar->inisialjenissurat = $request->inisialjenissurat;
-        $suratkeluar->keterangan = $request->keterangan;
+        $suratkeluar->keterangan = $request->ket;
         $suratkeluar->save();
 
         return redirect('/jenissuratkeluar');
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $suratkeluar = JenisSuratKeluar::find($id);

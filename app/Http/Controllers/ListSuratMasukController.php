@@ -7,38 +7,14 @@ use App\ListSuratMasuk;
 
 class ListSuratMasukController extends Controller
 {
-     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $listsuratmasuk = ListSuratMasuk::all();
         
-        return view ('page.dropdown4',compact('listsuratmasuk'));
+        return view ('page.dropdown5',compact('listsuratmasuk'));
     }
 
-    public function cetaklist()
-    {
-        $listsuratmasuk = ListSuratMasuk::all();
-
-        return view ('page.cetaklaporanlistsuratmasuk',compact('listsuratmasuk'));
-    }
-
-    // public function cetaksatu($id)
-    // {
-    //     $suratmasuk = ListSuratMasuk::all();
-
-    //     return view ('page.cetaklistsuratmasuk',compact('suratmasuk'));
-    // }
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $listsuratmasuk = ListSuratMasuk::all();
@@ -50,15 +26,9 @@ class ListSuratMasukController extends Controller
         return view ('page.createlistsuratmasuk', compact('listsuratmasuk','max'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //memanggil dari createlistsuratmasuk dengan variabel name
+        // diambil dari html name
         // $this->validate($request,[
         //     'no_surat'=>'required',
         //     'perihal'=>'required',
@@ -78,78 +48,52 @@ class ListSuratMasukController extends Controller
         return redirect('/listsuratmasuk');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $laporanlistsuratmasuk = ListSuratMasuk::find($id);
-
-        $suratmasuk = ListSuratMasuk::find($id);
-
-        return view('page.readlistsuratmasuk', compact('laporanlistsuratmasuk','suratmasuk'));
-    }
-
-    //untuk view laporan
-    public function read($id)
-    {
-        $suratmasuk = ListSuratMasuk::find($id);
-
-        return view('page.readlaporanlistsuratmasuk', compact('suratmasuk'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $suratmasuk = ListSuratMasuk::find($id);
-        
-        //letak folder sama layout yang akan diedit, kemudian panggil variabel suratkeluar di bagian input untuk diletakkan disana
-        return view('page.editlistsuratmasuk', ['suratmasuk'=>$suratmasuk]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            //'no_surat'=>'required',
-            'perihal'=>'required',
-            'instansipengirim'=>'required',
-            'Keterangan'=>'required',
-            'statussuratmasuk'=>'required'
-        ]);
         
         //memanggil inisialisasi dari edit dan membuat variabel baru yang akan di masukkan ke database
         $suratmasuk = ListSuratMasuk::find($id);
-        //$suratmasuk->no_surat = $request->no_surat;
+
+        $suratmasuk->no_surat = $request->no_surat;
         $suratmasuk->perihal = $request->perihal;
         $suratmasuk->instansipengirim = $request->instansipengirim;
         $suratmasuk->Keterangan = $request->Keterangan;
-        $suratmasuk->statussuratmasuk = $request->statussuratmasuk;
+        // $suratmasuk->statussuratmasuk = $request->statussuratmasuk;
         $suratmasuk->save();
 
         return redirect('/listsuratmasuk');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function status(Request $request, $id)
+    {
+        if (!empty($request->nosurat)) {
+           $nosurat = $request->nosurat;
+        }else{
+           $nosurat = '';
+        }
+        
+        //memanggil inisialisasi dari edit dan membuat variabel baru yang akan di masukkan ke database
+        $suratmasuk = ListSuratMasuk::find($id);
+        $suratmasuk->keteranganstatus = $nosurat;
+        $suratmasuk->save();
+
+        return redirect('/statussuratmasuk');
+    }
+
+    public function statussurat()
+    {
+        $listsuratmasuk = ListSuratMasuk::all();
+
+        return view('page.dropdown6', compact('listsuratmasuk'));
+    }
+
+    public function laporanindex()
+    {
+        $listsuratmasuk = ListSuratMasuk::all();
+        
+        return view ('page.dropdown7',compact('listsuratmasuk'));
+    }
+
     public function destroy($id)
     {
         $suratmasuk = ListSuratMasuk::find($id);
@@ -157,4 +101,44 @@ class ListSuratMasukController extends Controller
 
         return redirect('/listsuratmasuk');
     }
+
+    // public function cetaklist()
+    // {
+    //     $listsuratmasuk = ListSuratMasuk::all();
+
+    //     return view ('page.cetaklaporanlistsuratmasuk',compact('listsuratmasuk'));
+    // }
+
+    // public function cetaksatu($id)
+    // {
+    //     $suratmasuk = ListSuratMasuk::all();
+
+    //     return view ('page.cetaklistsuratmasuk',compact('suratmasuk'));
+    // }
+
+    // public function show($id)
+    // {
+    //     $laporanlistsuratmasuk = ListSuratMasuk::find($id);
+
+    //     $suratmasuk = ListSuratMasuk::find($id);
+
+    //     return view('page.readlistsuratmasuk', compact('laporanlistsuratmasuk','suratmasuk'));
+    // }
+
+    //untuk view laporan
+    // public function read($id)
+    // {
+    //     $suratmasuk = ListSuratMasuk::find($id);
+
+    //     return view('page.readlaporanlistsuratmasuk', compact('suratmasuk'));
+    // }
+
+    // public function edit($id)
+    // {
+    //     $suratmasuk = ListSuratMasuk::find($id);
+        
+    //     //letak folder sama layout yang akan diedit, kemudian panggil variabel suratkeluar di bagian input untuk diletakkan disana
+    //     return view('page.editlistsuratmasuk', ['suratmasuk'=>$suratmasuk]);
+    // }
+
 }

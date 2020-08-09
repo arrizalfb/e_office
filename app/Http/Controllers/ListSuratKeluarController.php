@@ -10,11 +10,6 @@ use App\JenisSuratKeluar;
 
 class ListSuratKeluarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $listsuratkeluar = ListSuratKeluar::all();
@@ -24,26 +19,6 @@ class ListSuratKeluarController extends Controller
         return view ('page.dropdown2',compact('listsuratkeluar','jenissuratkeluar','instansi'));
     }
 
-
-    // public function cetaklist()
-    // {
-    //     $listsuratkeluar = ListSuratKeluar::all();
-        
-    //     return view ('page.cetaklaporanlistsuratkeluar',['listsuratkeluar'=>$listsuratkeluar]);
-    // }
-
-    // public function cetaksatu($id)
-    // {
-    //     $suratkeluar = ListSuratKeluar::find($id);
-
-    //     return view('page.cetaklistsuratkeluar', compact('suratkeluar'));
-    // }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
          $listsuratkeluar = ListSuratKeluar::all();
@@ -61,12 +36,6 @@ class ListSuratKeluarController extends Controller
          return view ('page.createlistsuratkeluar', compact('max', 'jenissurat', 'instansi','listsuratkeluar'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //memanggil dari createlistsuratmasuk dengan variabel name
@@ -80,7 +49,12 @@ class ListSuratKeluarController extends Controller
         //     'keterangan'=>'required'
         // ]);
         
-
+        
+        // if (!empty($request->ketstat)) {
+        //    $ketstat = $request->ketstat;
+        // }else{
+        //    $ketstat = '.';
+        // }
         //memanggil dari createlistsuratmasuk dengan variabel name dan memasukan ke database
         ListSuratKeluar::create([
             //request itu diambil untuk name
@@ -90,17 +64,12 @@ class ListSuratKeluarController extends Controller
             'tujuan'=>$request->instansi,
             'penanggungjawab'=>$request->penanggungjawab,
             'keterangan'=>$request->keterangan,
-            'statussuratkeluar'=>''
+            'statussuratkeluar'=>$request->statusuratkeluar,
+            'keteranganstatus'=>''
         ]);
         return redirect('/listsuratkeluar');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $laporanlistsuratkeluar = ListSuratKeluar::find($id);
@@ -118,58 +87,59 @@ class ListSuratKeluarController extends Controller
         return view('page.readlaporanlistsuratkeluar', compact('suratkeluar'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $listkeluar = ListSuratKeluar::find($id);
         
         //letak folder sama layout yang akan diedit, kemudian panggil variabel suratkeluar di bagian input untuk diletakkan disana
-        return view('page.editlistsuratkeluar', compact('listkeluar'));
+        return view('page.statuslistsuratkeluar', compact('listkeluar'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update($id, Request $request)
-    {
-        // $this->validate($request,[
-        //     'jenissurat'=>'required',
-        //     'perihal'=>'required',
-        //     'tujuan'=>'required',
-        //     'perusahaan'=>'required',
-        //     'penanggungjawab'=>'required',
-        //     'keterangan'=>'required',
-        //     'statussuratkeluar'=>'statussuratkeluar'
-        // ]);
-        
+    {   
         //memanggil inisialisasi dari edit dan membuat variabel baru yang akan di masukkan ke database
         $listkeluar = ListSuratKeluar::find($id);
         $listkeluar->jenissurat = $request->jenissurat;
         $listkeluar->perihal = $request->perihal;
-        $listkeluar->tujuan = $request->tujuan;
+        $listkeluar->tujuan = $request->instansi;
         $listkeluar->penanggungjawab = $request->penanggungjawab;
         $listkeluar->keterangan = $request->keterangan;
-        $listkeluar->statussuratkeluar = $request->statussuratkeluar;
         $listkeluar->save();
 
         return redirect('/listsuratkeluar');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function status($id, Request $request)
+    {
+        if (!empty($request->ketstat)) {
+           $ketstat = $request->ketstat;
+        }else{
+           $ketstat = '';
+        }
+
+        //memanggil inisialisasi dari edit dan membuat variabel baru yang akan di masukkan ke database
+        $listkeluar = ListSuratKeluar::find($id);
+        $listkeluar->statussuratkeluar = $request->statusuratkeluar;
+        $listkeluar->keteranganstatus = $ketstat;
+        $listkeluar->save();
+
+        return redirect('/statussuratkeluar');
+    }
+
+    public function statussurat()
+    {
+        $listsuratkeluar = ListSuratKeluar::all();
+
+        return view('page.dropdown3', compact('listsuratkeluar'));
+    }
+
+    public function laporanindex()
+    {
+        $listsuratkeluar = ListSuratKeluar::all();
+        
+        return view ('page.dropdown4',compact('listsuratkeluar'));
+    }
+
     public function destroy($id)
     {
         $suratkeluar = ListSuratKeluar::find($id);
@@ -177,4 +147,18 @@ class ListSuratKeluarController extends Controller
 
         return redirect('/listsuratkeluar');
     }
+
+    // public function cetaklist()
+    // {
+    //     $listsuratkeluar = ListSuratKeluar::all();
+        
+    //     return view ('page.cetaklaporanlistsuratkeluar',['listsuratkeluar'=>$listsuratkeluar]);
+    // }
+
+    // public function cetaksatu($id)
+    // {
+    //     $suratkeluar = ListSuratKeluar::find($id);
+
+    //     return view('page.cetaklistsuratkeluar', compact('suratkeluar'));
+    // }
 }

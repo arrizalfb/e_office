@@ -1,7 +1,6 @@
 @extends('master.layout')
 
 @section('content')
-
 <!-- page title area end -->
   <div class="main-content-inner">
     <div class="row">
@@ -9,7 +8,7 @@
       <div class="col-12 mt-4">
         <div class="card">
           <div class="card-body">
-            <h4 class="header-title">Laporan Data Table List Tagihan Produk/Layanan</h4>
+            <h4 class="header-title">Status Tagihan Data Table List Tagihan Produk/Layanan</h4>
             <div class="data-tables dataTables_wrapper datatable-primary">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -46,6 +45,7 @@
                             <!-- <a href="/listtagihanproduklayanan/edit/{{ $ltpl->id }}" button type="button" class="btn btn-info badge-pill" style="padding-right:80px,width:80px">Edit</a> -->
                             <!-- <a href="/listtagihanproduklayanan/view/{{ $ltpl->id }}" button type="button" class="btn btn-warning badge-pill" style="padding-right:80px,width:80px">View</a> -->
                             <!-- <a href="/listtagihanproduklayanan/delete/{{ $ltpl->id }}" button type="button" class="btn btn-danger badge-pill" style="padding-right:80px,width:80px">Delete</a> -->
+                            <button type="button" class="btn btn-info badge-pill fa fa-edit" data-toggle="modal" data-target="#Edit{{$ltpl->id}}">Edit</button>
                             <button type="button" class="btn btn-warning badge-pill fa fa-eye" data-toggle="modal" data-target="#View{{$ltpl->id}}">View</button>
                         </td>
                     </tr>
@@ -75,6 +75,53 @@
   </div>
 </div>
 
+<!-- Edit Data -->
+@foreach($listtagihanproduklayanan as $ltpl)
+<!-- Modal -->
+<div class="modal fade" id="Edit{{$ltpl->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form id="form3" method="post" action="/listtagihanproduklayanan/statustagihan/{{$ltpl->id}}">
+          {{ csrf_field() }}
+          {{ method_field('PUT') }}
+          <div class="box-body">
+
+            <div class="form-group">
+              <label>Pilih Kategori: </label>
+                <select id="detail" name="status" class="form-control">
+                  <option>Diterima CP</option>
+                  <option>Diproses Keuangan</option>
+                  <option>Diproses Direksi</option>
+                  <option>Sudah Dibayar</option>
+                </select>
+            </div>
+
+            <div class="box-footer">
+              <input type="submit" class="btn btn-primary" value="Submit">
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+@endforeach
+
 <!-- View Data -->
 @foreach($listtagihanproduklayanan as $ltpl)
 <!-- Modal -->
@@ -95,21 +142,9 @@
           <div class="box-body">
 
             <div class="form-group">
-              <label for="statusdokument">Status Dokument</label>
-              <!-- untuk  memanggil instansi rekanan -->
-              <input type="text" class="form-control" value="{{$ltpl->statusdokument}}" id="statusdokument" name="statusdokument" placeholder="Status Dokument" readonly>
-            </div>
-
-            <div class="form-group">
-              <label for="keteranganstatusdokument">Keterangan Status Dokument</label>
-              <!-- untuk  memanggil instansi rekanan -->
-              <input type="text" class="form-control" value="{{$ltpl->keteranganstatus}}" id="keteranganstatusdokument" name="keteranganstatusdokument" placeholder="Keterangan Status Dokument" readonly>
-            </div>
-
-            <div class="form-group">
               <label for="statustagihan">Status Tagihan</label>
               <!-- untuk  memanggil instansi rekanan -->
-              <input type="text" class="form-control" value="{{$ltpl->status}}" id="statustagihan" name="statustagihan" placeholder="Status Tagihan" readonly>
+              <input type="text" class="form-control" value="{{$ltpl->status}}" id="statustagihan" name="instansi" placeholder="Status Tagihan" readonly>
             </div>
 
             <div class="form-group">

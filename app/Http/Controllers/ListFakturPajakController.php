@@ -8,38 +8,15 @@ use App\Instansi;
 
 class ListFakturPajakController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $instansi = Instansi::all();
         $listfakturpajak = ListFakturPajak::all();
         
-        return view ('page.dropdown16',compact('listfakturpajak','instansi'));
+        return view ('page.dropdown17',compact('listfakturpajak','instansi'));
     }
 
-    public function cetaklist()
-    {
-        $listfakturpajak = ListFakturPajak::all();
-        
-        return view ('page.cetaklaporanlistpajak',['listfakturpajak'=>$listfakturpajak]);
-    }
-
-    // public function cetaksatu()
-    // {
-    //     $listfakturpajak = ListFakturPajak::all();
-        
-    //     return view ('page.cetaklistpajak',['listfakturpajak'=>$listfakturpajak]);
-    // }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $listfakturpajak = ListFakturPajak::all();
@@ -54,12 +31,6 @@ class ListFakturPajakController extends Controller
         return view ('page.createlistfakturpajak',compact('listfakturpajak','instansi','max'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         // //memanggil dari createlistsuratmasuk dengan variabel name
@@ -94,47 +65,6 @@ class ListFakturPajakController extends Controller
         return redirect('/listfakturpajak');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $listfakturpajak = ListFakturPajak::find($id);
-
-        return view('page.readlistfakturpajak ', ['listfakturpajak'=>$listfakturpajak ]);
-    }
-
-    public function read($id)
-    {
-        $listfakturpajak = ListFakturPajak::find($id);
-
-        return view('page.readlaporanlistfakturpajak ', ['listfakturpajak'=>$listfakturpajak ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $listfaktur = ListFakturPajak::find($id);
-        
-        //letak folder sama layout yang akan diedit, kemudian panggil variabel suratkeluar di bagian input untuk diletakkan disana
-        return view('page.editlistfakturpajak ', ['listfaktur'=>$listfaktur]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $this->validate($request,[
@@ -160,20 +90,46 @@ class ListFakturPajakController extends Controller
         $listfaktur->nominalhpp = $request->nominalhpp;
         $listfaktur->nominalppn = $request->nominalppn;
         $listfaktur->keterangan = $request->keterangan;
-        $listfaktur->statusfakturpajak = $request->statusfakturpajak;
+        // $listfaktur->statusfakturpajak = $request->statusfakturpajak;
         $listfaktur->save();
-
 
         return redirect('/listfakturpajak');
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function status(Request $request, $id)
+    {
+        if (!empty($request->ketstat)) {
+           $ketstat = $request->ketstat;
+        }else{
+           $ketstat = '';
+        }
+
+        $listfaktur = ListFakturPajak::find($id);
+        $listfaktur->statusfakturpajak = $request->statusfaktur;
+        $listfaktur->keteranganstatus = $ketstat;
+        $listfaktur->save();
+
+        return redirect('/statusfakturpajak');
+
+    }
+
+    public function statussurat()
+    {
+        $instansi = Instansi::all();
+        $listfakturpajak = ListFakturPajak::all();
+
+        return view('page.dropdown18', compact('instansi','listfakturpajak'));
+    }
+
+    public function laporanindex()
+    {
+        $instansi = Instansi::all();
+        $listfakturpajak = ListFakturPajak::all();
+        
+        return view ('page.dropdown19',compact('instansi','listfakturpajak'));
+    }
+
     public function destroy($id)
     {
         $suratmasuk = ListFakturPajak::find($id);
@@ -181,4 +137,47 @@ class ListFakturPajakController extends Controller
 
         return redirect('/listfakturpajak');
     }
+
+    // public function laporanindex()
+    // {
+    //     $listfakturpajak = ListFakturPajak::all();
+        
+    //     return view ('page.laporanlistfakturpajak',['listfakturpajak'=>$listfakturpajak]);
+    // }
+
+    // public function cetaklist()
+    // {
+    //     $listfakturpajak = ListFakturPajak::all();
+        
+    //     return view ('page.cetaklaporanlistpajak',['listfakturpajak'=>$listfakturpajak]);
+    // }
+
+    // public function cetaksatu()
+    // {
+    //     $listfakturpajak = ListFakturPajak::all();
+        
+    //     return view ('page.cetaklistpajak',['listfakturpajak'=>$listfakturpajak]);
+    // }
+
+    // public function show($id)
+    // {
+    //     $listfakturpajak = ListFakturPajak::find($id);
+
+    //     return view('page.readlistfakturpajak ', ['listfakturpajak'=>$listfakturpajak ]);
+    // }
+
+    // public function read($id)
+    // {
+    //     $listfakturpajak = ListFakturPajak::find($id);
+
+    //     return view('page.readlaporanlistfakturpajak ', ['listfakturpajak'=>$listfakturpajak ]);
+    // }
+
+    // public function edit($id)
+    // {
+    //     $listfaktur = ListFakturPajak::find($id);
+        
+    //     //letak folder sama layout yang akan diedit, kemudian panggil variabel suratkeluar di bagian input untuk diletakkan disana
+    //     return view('page.editlistfakturpajak ', ['listfaktur'=>$listfaktur]);
+    // }
 }

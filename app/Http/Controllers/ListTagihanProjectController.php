@@ -8,39 +8,14 @@ use App\Instansi;
 
 class ListTagihanProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $instansi = Instansi::all();
         $listtagihanproject = ListTagihanProject::all();
         
-        return view ('page.dropdown12',compact('listtagihanproject','instansi'));
+        return view ('page.dropdown13',compact('listtagihanproject','instansi'));
     }
 
-
-    public function cetaklist()
-    {
-        $listtagihanproject = ListTagihanProject::all();
-        
-        return view ('page.cetaklaporanlistproject', compact('listtagihanproject'));
-    }
-
-    // public function cetaksatu()
-    // {
-    //     $listtagihanproject = ListTagihanProject::all();
-        
-    //     return view ('page.cetaklistproject', compact('listtagihanproject'));
-    // }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $listtagihanproject = ListTagihanProject::all();
@@ -55,15 +30,9 @@ class ListTagihanProjectController extends Controller
         return view ('page.createlisttagihanproject',compact('listtagihanproject','instansi','max'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        // //memanggil dari dengan variabel name
+        //memanggil dari dengan variabel name
         // $this->validate($request,[
         //     'instansirekanan'=>'required',
         //     'tanggaltagihan'=>'required',
@@ -75,101 +44,128 @@ class ListTagihanProjectController extends Controller
 
         //untuk menyimpan gambar di folder laravel
         $dokumen = $request->file('dokumentpelengkap')->store('dokumen');
+        //dd($dokumen);
+
+        //menampilkan bulan
+        $bulan = date('m', strtotime($request->tanggaltagihan));
 
         //menghitung nilai ppn
         $ppn = $request->nominalhpp * 0.1;
-        $bulan = date('m', strtotime($request->tanggaltagihan));
+        // $bulan = date('m', strtotime($request->tanggaltagihan));
+        
         //memanggil dari createjenissurat dengan variabel name
         ListTagihanProject::create([
             'instansirekanan'=>$request->instansi,
-            'bulantagihan'=>$bulan,
             'tanggaltagihan'=>$request->tanggaltagihan,
             'nominalhpp'=>$request->nominalhpp,
             'ppn'=>$ppn,
             'tanggaljatuhtempo'=>$request->tanggaljatuhtempo,
             'dokumentpelengkap'=>$dokumen,
             'keterangan'=>$request->keterangan,
-            'statusdokument'=>'',
-            'statustagihan'=>''
+            // 'bulantagihan'=>$bulan,
         ]);
         return redirect('/listtagihanproject');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $laporanlistproject = ListTagihanProject::find($id);
-
-        $listtagihanproject = ListTagihanProject::find($id);
-
-        return view('page.readlisttagihanproject ', compact('laporanlistproject','listtagihanproject'));
-    }
-
-    public function read($id)
-    {
-        $listtagihanproject = ListTagihanProject::find($id);
-
-        return view('page.readlaporanlistproject', compact('listtagihanproject'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $listproject = ListTagihanProject::find($id);
-        
-        //letak folder sama layout yang akan diedit, kemudian panggil variabel suratkeluar di bagian input untuk diletakkan disana
-        return view('page.editlisttagihanproject ', ['listproject'=>$listproject]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'instansirekanan'=>'required',
-            'tanggaltagihan'=>'required',
-            'nominalhpp'=>'required',
-            'tanggaljatuhtempo'=>'required',
-            'dokumentpelengkap'=>'required',
-            'keterangan'=>'required',
-        ]);
+        // $this->validate($request,[
+        //     'instansirekanan'=>'required',
+        //     'tanggaltagihan'=>'required',
+        //     'nominalhpp'=>'required',
+        //     'tanggaljatuhtempo'=>'required',
+        //     'dokumentpelengkap'=>'required',
+        //     'keterangan'=>'required',
+        // ]);
+        
+        $file_baru = $request->file('file_baru');
+        // dd($file_baru);
+        if (!empty($file_baru)) {
+           $file = $file_baru;
+           $file = $file_baru->store('dokumen');
+        }else{
+           $file = $request->file_lama;
+        }
 
         $listproject = ListTagihanProject::find($id);
-        $listproject->instansirekanan = $request->instansirekanan;
+        $listproject->instansirekanan = $request->instansi;
         $listproject->tanggaltagihan = $request->tanggaltagihan;
         $listproject->nominalhpp = $request->nominalhpp;
         $listproject->tanggaljatuhtempo = $request->tanggaljatuhtempo;
-        $listproject->dokumentpelengkap = $request->dokumentpelengkap;
+        $listproject->dokumentpelengkap = $file;
         $listproject->keterangan = $request->keterangan;
-        $listproject->statusdokument = $request->statusdokument;
-        $listproject->statustagihan = $request->statustagihan;
         $listproject->save();
         
-
         return redirect('/listtagihanproject');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function status(Request $request, $id)
+    {
+        // $this->validate($request,[
+        //     'instansirekanan'=>'required',
+        //     'tanggaltagihan'=>'required',
+        //     'nominalhpp'=>'required',
+        //     'tanggaljatuhtempo'=>'required',
+        //     'dokumentpelengkap'=>'required',
+        //     'keterangan'=>'required',
+        // ]);
+
+        if (!empty($request->ketstat)) {
+           $ketstat = $request->ketstat;
+        }else{
+           $ketstat = '';
+        }
+
+        $listproject = ListTagihanProject::find($id);
+        $listproject->statusdokument = $request->statusdok;
+        $listproject->keteranganstatus = $ketstat;
+        $listproject->save();
+        
+        return redirect('/statusdokumentproject');
+    }
+
+    public function tagihan(Request $request, $id)
+    {
+        // $this->validate($request,[
+        //     'instansirekanan'=>'required',
+        //     'tanggaltagihan'=>'required',
+        //     'nominalhpp'=>'required',
+        //     'tanggaljatuhtempo'=>'required',
+        //     'dokumentpelengkap'=>'required',
+        //     'keterangan'=>'required',
+        // ]);
+
+        $listproject = ListTagihanProject::find($id);
+        $listproject->statustagihan = $request->statustagihan;
+        $listproject->save();
+
+        return redirect('/statustagihanproject');
+    }
+
+    public function statusdokument()
+    {
+        $instansi = Instansi::all();
+        $listtagihanproject = ListTagihanProject::all();
+
+        return view('page.dropdown14', compact('instansi','listtagihanproject'));
+    }
+
+    public function statustagihan()
+    {
+        $instansi = Instansi::all();
+        $listtagihanproject = ListTagihanProject::all();
+
+        return view('page.dropdown15', compact('instansi','listtagihanproject'));
+    }
+
+    public function laporanindex()
+    {
+        $instansi = Instansi::all();
+        $listtagihanproject = ListTagihanProject::all();
+        
+        return view ('page.dropdown16',compact('instansi','listtagihanproject'));
+    }
+
     public function destroy($id)
     {
         $listtagihanproject = ListTagihanProject::find($id);
@@ -177,4 +173,50 @@ class ListTagihanProjectController extends Controller
 
         return redirect('/listtagihanproject');
     }
+
+    // public function cetaksatu()
+    // {
+    //     $listtagihanproject = ListTagihanProject::all();
+        
+    //     return view ('page.cetaklistproject', compact('listtagihanproject'));
+    // }
+
+    // public function laporanindex()
+    // {
+    //     $listtagihanproject = ListTagihanProject::all();
+        
+    //     return view ('page.laporanlistproject', compact('listtagihanproject'));
+    // }
+
+    // public function cetaklist()
+    // {
+    //     $listtagihanproject = ListTagihanProject::all();
+        
+    //     return view ('page.cetaklaporanlistproject', compact('listtagihanproject'));
+    // }
+ 
+    // public function show($id)
+    // {
+    //     $laporanlistproject = ListTagihanProject::find($id);
+
+    //     $listtagihanproject = ListTagihanProject::find($id);
+
+    //     return view('page.readlisttagihanproject ', compact('laporanlistproject','listtagihanproject'));
+    // }
+
+    // public function read($id)
+    // {
+    //     $listtagihanproject = ListTagihanProject::find($id);
+
+    //     return view('page.readlaporanlistproject', compact('listtagihanproject'));
+    // }
+
+    // public function edit($id)
+    // {
+    //     $listproject = ListTagihanProject::find($id);
+        
+    //     //letak folder sama layout yang akan diedit, kemudian panggil variabel suratkeluar di bagian input untuk diletakkan disana
+    //     return view('page.editlisttagihanproject ', ['listproject'=>$listproject]);
+    // }
+
 }

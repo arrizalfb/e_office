@@ -346,11 +346,11 @@
   </div>
 </div>
 
-<div class="main-content-inner">
-  <div class="row">
+<!-- <div class="main-content-inner">
+  <div class="row"> -->
     <!-- data table start -->
     <!-- Primary table start -->
-    <div class="col-12 mt-5">
+    <!-- <div class="col-12 mt-5">
       <div class="card">
         <div class="card-body">
           <h4 class="header-title">Data List Surat Keluar</h4>
@@ -393,14 +393,14 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Primary table end -->
-  </div>
-</div>
+ <!--  </div>
+</div> -->
 
 
 <!-- Progress Table start -->
-  <div class="col-12 mt-5">
+  <!-- <div class="col-12 mt-5">
     <div class="card">
       <div class="card-body">
         <h4 class="header-title">Data List Surat Keluar</h4>
@@ -448,11 +448,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
    <!-- Progress Table end -->
 
    <!-- Progress Table start -->
-  <div class="col-12 mt-5">
+  <!-- <div class="col-12 mt-5">
     <div class="card">
       <div class="card-body">
         <h4 class="header-title">Data List Surat Masuk</h4>
@@ -492,11 +492,11 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
    <!-- Progress Table end -->
 
    <!-- Progress Table start -->
-  <div class="col-12 mt-5">
+  <!-- <div class="col-12 mt-5">
     <div class="card">
       <div class="card-body">
         <h4 class="header-title">Data Jenis Produk/Layanan</h4>
@@ -512,7 +512,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- untuk  nomor urut otomatis -->
+                  untuk  nomor urut otomatis
                   <?php $no = 1;?>
                   @foreach($jenisproduklayanan as $pl)
                   <tr>
@@ -534,6 +534,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
    <!-- Progress Table end -->
 	@endsection

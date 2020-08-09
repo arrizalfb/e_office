@@ -2,74 +2,6 @@
 
 @section('content')
 <!-- page title area end -->
-  <div class="main-content-inner">
-    <div class="row">
-      <!-- Primary table start -->
-      <div class="col-12 mt-5">
-        <div class="card">
-
-          <div class="card-body">
-            <h4 class="header-title">Form List Surat Keluar</h4>
-            <div class="data-tables datatable-primary">
-          </div>
-              <!-- /.box-header -->
-
-              <!-- form start -->
-            <form method="post" action="/listsuratkeluar/save">
-            {{ csrf_field() }}
-              <div class="box-body">
-
-                <div class="form-group">
-                  <label for="no_surat">No. Surat</label>
-                  <input type="text" class="form-control" id="no_surat" name="no_surat" placeholder="No. Surat">
-                </div>
-
-                <div class="form-group"></div>
-                  <label for="jenissurat">Jenis Surat</label>
-                  <select name="jenissurat" class="form-control">
-                      @foreach($jenissuratkeluar as $j)
-                        <option>{{strtoupper($j->jenissurat)}}</option>
-                      @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="perihal">Perihal</label>
-                  <input type="text" class="form-control" id="perihal" name="perihal" placeholder="Perihal">
-                </div>
-
-                <div class="form-group">
-                  <label for="tujuan">Tujuan</label>
-                  <select name="instansi" class="form-control">
-                      @foreach($instansi as $i)
-                        <option>{{strtoupper($i->instansi_rekanan)}}</option>
-                      @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="penanggungjawab">Penanggung Jawab</label>
-                  <input type="text" class="form-control" id="penanggungjawab" name="penanggungjawab"placeholder="Penanggung Jawab">
-                </div>
-
-                <div class="form-group">
-                  <label for="keterangan">Keterangan</label>
-                  <textarea rows="7" class="form-control" id="keterangan" name="keterangan" placeholder="Keterangan"></textarea>
-                </div>
-              <!-- /.box-body -->
-
-              <div class="box-footer">
-                <input type="submit" class="btn btn-primary" value="Submit">
-              </div>
-
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-<!-- page title area end -->
-
-  <!-- page title area end -->
     <div class="main-content-inner">
       <div class="row">
         <!-- Primary table start -->
@@ -77,7 +9,7 @@
           <div class="card">
 
             <div class="card-body">
-              <h4 class="header-title">Data Tabel List Surat Keluar</h4>
+              <h4 class="header-title">Status Data Tabel List Surat Keluar</h4>
               <div class="data-tables datatable-primary">
                 <table id="dataTable2" class="text-center">
                   <thead>
@@ -88,6 +20,8 @@
                     <th>Perihal</th>
                     <th>Tujuan</th>
                     <th>Penanggung Jawab</th>
+                    <th>Status</th>
+                    <th>Keterangan Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -106,6 +40,8 @@
                     <td>{{$lsk->perihal}}</td>
                     <td>{{$lsk->tujuan}}</td>
                     <td>{{$lsk->penanggungjawab}}</td>
+                    <td>{{$lsk->statussuratkeluar}}</td>
+                    <td>{{$lsk->keteranganstatus}}</td>
                     <td>
                         <!-- <a href="/listsuratkeluar/edit/{{ $lsk->id }}" button type="button" class="btn btn-info edit" style="padding-right:80px,width:80px">Edit</a> -->
                         <!-- <a href="/listsuratkeluar/view/{{ $lsk->id }}" button type="button" class="btn btn-warning view" style="padding-right:80px,width:80px">View</a> -->
@@ -113,7 +49,6 @@
 
                         <button type="button" class="btn btn-info badge-pill fa fa-edit" data-toggle="modal" data-target="#Edit{{$lsk->id}}">Edit</button>
                         <button type="button" class="btn btn-warning badge-pill fa fa-eye" data-toggle="modal" data-target="#View{{$lsk->id}}">View</button>
-                        <button type="button" class="btn btn-danger badge-pill fa fa-trash" data-toggle="modal" data-target="#Delete{{$lsk->id}}">Delete</button>
                     </td>
                   </tr>
                   @endforeach
@@ -127,6 +62,8 @@
                     <th>Perihal</th>
                     <th>Tujuan</th>
                     <th>Penanggung Jawab</th>
+                    <th>Status</th>
+                    <th>Keterangan Status</th>
                     <th>Action</th>
                   </tr>
                 </tfoot> 
@@ -140,12 +77,25 @@
       </div>
     </div>
 
-
 <!-- Edit Data -->
 @foreach($listsuratkeluar as $lsk)
 <div class="modal fade" id="Edit{{$lsk->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+      <script>
+          function tampilkan(){
+            var nama_kota=document.getElementById("form1").detail.value;
+            if (nama_kota=="email"){
+                  document.getElementById("tampil").innerHTML=
+                  "<input type='text' id='email' class='form-control'name='ketstat' placeholder='Masukkan Email'>";
+            }else if (nama_kota=="Social"){
+                  document.getElementById("tampil").innerHTML=
+                  "<input type='text' id='social' class='form-control' name='ketstat' placeholder='Masukkan Social Media yang diinginkan'>";
+            }else{
+                  document.getElementById("tampil").innerHTML="";
+            }
+          }
+      </script>
 
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
@@ -155,44 +105,24 @@
       </div>
 
       <div class="modal-body">
-        <form method="post" action="/listsuratkeluar/update/{{$lsk->id}}">
+        <form id="form1" method="post" action="/listsuratkeluar/status/{{$lsk->id}}">
           {{ csrf_field() }}
           {{ method_field('PUT') }}
           <div class="box-body">
 
             <div class="form-group">
-              <label for="no_surat">No. Surat</label>
-              <input type="text" class="form-control" value="{{$lsk->no_surat}}" id="no_surat" name="no_surat" placeholder="No. Surat">
+              <label>Pilih Kategori: </label>
+                <select id="detail" name="statusuratkeluar" class="form-control" onchange="tampilkan()">
+                  <option>Belum Dikirim</option>
+                  <option value="email">Dikirim via email</option>
+                  <option value="Social">Dikirim via Social Chat</option>
+                  <option>Dikirim via Ekspedisi</option>
+                  <option>Sudah Diterima</option>
+                </select>
             </div>
 
             <div class="form-group">
-              <label for="jenissurat">Jenis Surat</label>
-              <input type="text" class="form-control" value="{{$lsk->jenissurat}}" id="jenissurat" name="jenissurat" placeholder="Jenis Surat">
-            </div>
-
-            <div class="form-group">
-              <label for="perihal">Perihal</label>
-              <input type="text" class="form-control" value="{{$lsk->perihal}}" id="perihal" name="perihal" placeholder="Perihal">
-            </div>
-
-            <div class="form-group">
-              <label for="tujuan">Tujuan</label>
-              <input type="text" class="form-control" value="{{$lsk->tujuan}}" id="tujuan" name="instansi" placeholder="Tujuan">
-            </div>
-
-            <div class="form-group">
-              <label for="penanggungjawab">Penanggung Jawab</label>
-              <input type="text" class="form-control" value="{{$lsk->penanggungjawab}}" id="penanggungjawab" name="penanggungjawab"placeholder="Penanggung Jawab">
-            </div>
-
-            <div class="form-group">
-              <label for="keterangan">Keterangan</label>
-              <textarea rows="7" class="form-control" id="keterangan" name="keterangan" placeholder="Keterangan">{{$lsk->keterangan}}</textarea>
-            </div>
-            <!-- /.box-body -->
-
-            <div class="box-footer">
-              <input type="submit" class="btn btn-primary" value="Submit">
+                <p id="tampil"></p>
             </div>
 
           </div>
@@ -207,7 +137,6 @@
   </div>
 </div>
 @endforeach
-
 
 <!-- View Data -->
 @foreach($listsuratkeluar as $lsk)
@@ -226,6 +155,17 @@
         <form method="post" action="/listsuratkeluar/view/{{$lsk->id}}">
           {{ csrf_field() }}
           <div class="box-body">
+
+            <div class="form-group">
+              <label for="statussuratkeluar">Status Surat Keluar</label>
+              <input type="text" class="form-control" value="{{$lsk->statussuratkeluar}}" id="statussuratkeluar" name="no_surat" placeholder="Status Surat Keluar" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="statussuratkeluar">Keterangan Surat Keluar</label>
+              <input type="text" class="form-control" value="{{$lsk->keteranganstatus}}" id="statussuratkeluar" name="no_surat" placeholder="Keterangan Surat Keluar" readonly>
+            </div>
+
 
             <div class="form-group">
               <label for="no_surat">No. Surat</label>
@@ -271,36 +211,5 @@
 </div>
 @endforeach
 
-
-<!-- Delete Data -->
-@foreach($listsuratkeluar as $lsk)
-<div class="modal" id="Delete{{$lsk->id}}" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-
-      <form method="get" action="/listsuratkeluar/delete/{{$lsk->id}}">
-
-        <div class="modal-header">
-          <h5 class="modal-title">Delete Data</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Are You Sure Delete This Data {{$lsk->no_surat}}?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-          <button type="submit" class="btn btn-danger">Yes</button>
-        </div>
-
-      </form>
-    </div>
-  </div>
-</div>
-@endforeach
-
-    <!-- <script>
-    window.print();
-  </script> -->
+    
 @endsection

@@ -7,23 +7,13 @@ use App\JenisProdukLayanan;
 
 class JenisProdukLayananController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $jenisproduklayanan = JenisProdukLayanan::all();
         
-        return view ('page.dropdown7',['jenisproduklayanan'=>$jenisproduklayanan], );
+        return view ('page.dropdown8', compact('jenisproduklayanan'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $jenisproduklayanan = JenisProdukLayanan::all();
@@ -35,12 +25,6 @@ class JenisProdukLayananController extends Controller
         return view ('page.createjenisproduklayanan', compact('jenisproduklayanan','max'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //memanggil dari createjenissurat dengan variabel name
@@ -57,23 +41,11 @@ class JenisProdukLayananController extends Controller
         return redirect('/jenisproduklayanan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $produklayanan = JenisProdukLayanan::find($id);
@@ -82,13 +54,6 @@ class JenisProdukLayananController extends Controller
         return view('page.editjenisproduklayanan', ['produklayanan'=>$produklayanan]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update($id, Request $request)
     {
         $this->validate($request,[
@@ -104,12 +69,6 @@ class JenisProdukLayananController extends Controller
         return redirect('/jenisproduklayanan');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $jenisproduklayanan = JenisProdukLayanan::find($id);

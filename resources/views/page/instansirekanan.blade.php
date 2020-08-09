@@ -15,33 +15,39 @@
                   <form method="post" action="/instansi/save">
                   {{ csrf_field() }}
                     <div class="box-body">
+
                       <div class="form-group">
                         <label for="instansirekanan">Nama Perusahaan/Instansi</label>
                         <input type="text" class="form-control" id="instansirekanan" name="instansirekanan" placeholder="Nama Perusahaan/Instansi">
                       </div>
+
                       <div class="form-group">
-                        <label for="prioritas">Skala Prioritas</label>
+                        <label for="skala">Skala Prioritas</label>
                           <!-- untuk  memanggil npwp instansi rekanan -->
-                          <select name="prioritas" class="form-control">
-                              <option name="prioritas" value="Penting">Penting</option>
-                              <option name="prioritas" value="Penting">Tidak</option>
+                          <select name="skala" class="form-control">
+                              <option value="1">Penting</option>
+                              <option value="0">Tidak</option>
                           </select>
                       </div>
+
                       <div class="form-group">
                         <label for="alamat">Alamat Perusahaan/Instansi</label>
                         <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat Perusahaan/Instansi">
                       </div>
+
                       <div class="form-group">
                         <label for="npwp">NPWP</label>
-                        <input type="number" class="form-control" id="npwp" name="npwp"placeholder="NPWP">
+                        <input type="number" class="form-control" id="npwp" name="npwp" placeholder="NPWP">
                       </div>
+
                       <div class="form-group">
-                        <label for="namecontact">Nama Kontak Perusahaan/Instansi</label>
-                        <input type="text" class="form-control" id="namecontact" name="namecontact" placeholder="Nama Kontak Perusahaan/Instansi">
+                        <label for="namecontact">Nama Kontak Person</label>
+                        <input type="text" class="form-control" id="contactperson" name="namecontact" placeholder="Nama Kontak Person">
                       </div>
+
                       <div class="form-group">
-                        <label for="contactperson">Kontak Perusahaan/Instansi</label>
-                        <input type="number" class="form-control" id="contactperson" name="contact" placeholder="Kontak Perusahaan/Instansi">
+                        <label for="contactperson">No. Telepon Perusahaan/Instansi</label>
+                        <input type="text" class="form-control" id="contactperson" name="contact" placeholder="Kontak Perusahaan/Instansi">
                       </div>
 
                       <div class="box-footer">
@@ -69,24 +75,23 @@
                     <thead class="text-capitalize">
                       <tr>
                         <th>No</th>
-                        <th>Instansi Rekanan</th>
+                        <th>Nama Perusahaan/Instansi</th>
                         <th>Alamat</th>
                         <th>NPWP</th>
-                        <th>Nama Contact Person</th>
-                        <th>Contact Person</th>
+                        <th>Nama Kontak Person</th>
+                        <th>No. Telepon Perusahaan/Instansi</th>
                         <th>Action</th>
-                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php $no = 1;?>
                         @foreach($instansi as $i)
                         <tr>
-                          <td>{{$i->id}}</td>
+                          <td>{{$no++}}</td>
                           <td>{{$i->instansi_rekanan}}</td>
                           <td>{{$i->alamat}}</td>
                           <td>{{$i->npwp}}</td>
-                          <td>{{$i->namecontact}}
+                          <td>{{$i->namecontact}}</td>
                           <td>{{$i->contact_person}}</td>
 <!--                      <td>
                             @if($i->prioritas == 0)
@@ -96,9 +101,12 @@
                             @endif
                           </td> -->
                           <td>
-                            <a href="/instansi/delete/{{ $i->id }}" button type="button" class="btn btn-danger fa fa-trash" style="padding-right:80px,width:80px">Delete</a>
+                            <button type="button" class="btn btn-info badge-pill fa fa-edit" data-toggle="modal" data-target="#Edit{{$i->id}}">Edit</button>
+                            <button type="button" class="btn btn-danger badge-pill fa fa-trash" data-toggle="modal" data-target="#Delete{{$i->id}}">Delete</button>
+
+                            <!-- <a href="/instansi/edit/{{ $i->id }}" button type="button" class="btn btn-info badge-pill, fa fa-edit" style="padding-right:80px,width:80px">Edit</a>
+                            <a href="/instansi/delete/{{ $i->id }}" button type="button" class="btn btn-danger fa fa-trash" style="padding-right:80px,width:80px">Delete</a> -->
                           </td>
-                          <td></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -108,10 +116,9 @@
                         <th>Instansi Rekanan</th>
                         <th>Alamat</th>
                         <th>NPWP</th>
-                        <th>Nama Contact Person</th>
-                        <th>Contact Person</th>
+                        <th>Nama Kontak Person</th>
+                        <th>No. Telepon Perusahaan/Instansi</th>
                         <th>Action</th>
-                        <th></th>
                       </tr>
                     </tfoot>
                   </table>
@@ -122,6 +129,108 @@
         </div>
       </div>
       <!-- Primary table end -->
-    
+
+
+<!-- Edit Data -->
+@foreach($instansi as $i)
+<div class="modal fade" id="Edit{{$i->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form method="post" action="/instansi/update/{{$i->id}}">
+          {{ csrf_field() }}
+          {{ method_field('PUT') }}
+          <div class="box-body">
+
+            <div class="form-group">
+              <label for="instansirekanan">Nama Perusahaan/Instansi</label>
+              <input type="text" class="form-control" value="{{$i->instansi_rekanan}}" id="instansirekanan" name="instansirekanan" placeholder="Nama Perusahaan/Instansi">
+            </div>
+
+            <div class="form-group">
+              <label for="skala">Skala Prioritas</label>
+                <!-- untuk  memanggil npwp instansi rekanan -->
+                <select name="skala" class="form-control">
+                  <option value="1">Penting</option>
+                  <option value="0">Tidak</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+              <label for="alamat">Alamat Perusahaan/Instansi</label>
+              <input type="text" class="form-control" value="{{$i->alamat}}" id="alamat" name="alamat" placeholder="Alamat Perusahaan/Instansi">
+            </div>
+            
+            <div class="form-group">
+              <label for="npwp">NPWP</label>
+              <input type="number" class="form-control" value="{{$i->npwp}}" id="npwp" name="npwp"placeholder="NPWP">
+            </div>
+
+            <div class="form-group">
+              <label for="namecontact">Nama Kontak Person</label>
+              <input type="text" class="form-control" value="{{$i->namecontact}}" id="contactperson" name="namecontact" placeholder="Nama Kontak Person">
+            </div>
+            
+            <div class="form-group">
+              <label for="contactperson">No. Telepon Perusahaan/Instansi</label>
+              <input type="text" class="form-control" value="{{$i->contact_person}}" id="contactperson" name="contact" placeholder="Kontak Perusahaan/Instansi">
+            </div>
+
+            <div class="box-footer">
+              <input type="submit" class="btn btn-primary" value="Submit"> 
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+@endforeach
+
+
+<!-- Delete Data -->
+@foreach($instansi as $i)
+<div class="modal" id="Delete{{ $i->id }}" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <form method="get" action="/instansi/delete/{{$i->id}}">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Delete Data</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <p>Are You Sure Delete This Data {{$i->instansi_rekanan}}?</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+          <button type="submit" class="btn btn-danger">Yes</button>
+        </div>
+
+      </form>
+      
+    </div>
+  </div>
+</div>
+@endforeach
 
 @endsection

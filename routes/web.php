@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('login', 'AuthController@index');
 Route::post('post-login', 'AuthController@postLogin'); 
 
+//root untuk registration
+Route::get('registration', 'AuthController@registration');
+Route::post('post-registration', 'AuthController@postRegistration'); 
+
 //root untuk dashboard
 Route::get('/dashboard', 'AuthController@dashboard'); /*
 Route::get('/dashboard', function () {
@@ -23,9 +27,9 @@ Route::get('/dashboard', function () {
 })->name('/dashboard');*/
 
 //root untuk user profile
-Route::get('/profile', function () {
-    return view('page.profile');
-})->name('profile');
+// Route::get('/profile', function () {
+//     return view('page.profile');
+// })->name('profile');
 
 //root untuk logout
 Route::get('logout', 'AuthController@logout')->name('logout');
@@ -38,6 +42,7 @@ Route::get('/instansi', 'InstansiController@index');
 Route::get('/instansi/create', 'InstansiController@create');
 Route::post('/instansi/save', 'InstansiController@save');
 Route::get('/instansi/edit/{id}', 'InstansiController@edit');
+Route::put('/instansi/update/{id}', 'InstansiController@update');
 Route::get('/instansi/delete/{id}', 'InstansiController@destroy');
 
 //root untuk crud divisi
@@ -45,15 +50,8 @@ Route::get('/divisi', 'DivisiController@index');
 Route::get('/divisi/create', 'DivisiController@create');
 Route::post('/divisi/save', 'DivisiController@store');
 Route::get('/divisi/edit/{id}', 'DivisiController@edit');
+Route::put('/divisi/update/{id}','DivisiController@update');
 Route::get('/divisi/delete/{id}', 'DivisiController@destroy');
-
-
-//untuk membuat nomor surat otomatis
-/*Route::get('otomatis', function(){
-    $Awal = 'JRD';
-    $bulanRomawi  = array("","I","II","III","IV","V","VI","VII","IX","X","XI");
-    $noUrutAkhir = \App\Http\jenis_surat_keluars
-}*/
 
 //bagian dari surat keluar
     //root untuk crud jenissuratkeluar
@@ -71,11 +69,18 @@ Route::get('/divisi/delete/{id}', 'DivisiController@destroy');
     Route::get('/listsuratkeluar/edit/{id}', 'ListSuratKeluarController@edit');
     Route::get('/listsuratkeluar/view/{id}', 'ListSuratKeluarController@show');
     Route::put('/listsuratkeluar/update/{id}', 'ListSuratKeluarController@update');
+    Route::put('/listsuratkeluar/status/{id}', 'ListSuratKeluarController@status');
     Route::get('/listsuratkeluar/delete/{id}', 'ListSuratKeluarController@destroy');
 
+    //root untuk status surat keluar
+    Route::get('/statussuratkeluar', 'ListSuratKeluarController@statussurat');
+
     //root untuk laporan listsuratkeluar
-    Route::get('/laporanlistsuratkeluar', 'LaporanSuratKeluarController@index');
-    // //bagian dari surat keluar
+    Route::get('/laporansuratkeluar', 'ListSuratKeluarController@laporanindex');
+    //Route::get('/laporan/listsuratkeluar/view/{id}', 'ListSuratKeluarController@read');
+    //Route::get('/laporan/listsuratkeluar/cetaksatu/{id}', 'ListSuratKeluarController@cetaksatu');
+    // Route::get('/laporan/listsuratkeluar/cetaklist', 'ListSuratKeluarController@cetaklist');
+// //bagian dari surat keluar
 
 //bagian dari surat masuk
     //root untuk crud listsuratmasuk
@@ -85,11 +90,17 @@ Route::get('/divisi/delete/{id}', 'DivisiController@destroy');
     Route::get('/listsuratmasuk/edit/{id}', 'ListSuratMasukController@edit');
     Route::get('/listsuratmasuk/view/{id}', 'ListSuratMasukController@show');
     Route::put('/listsuratmasuk/update/{id}', 'ListSuratMasukController@update');
+    Route::put('/listsuratmasuk/status/{id}', 'ListSuratMasukController@status');
     Route::get('/listsuratmasuk/delete/{id}', 'ListSuratMasukController@destroy');
 
-    //root untuk laporan surat masuk
-    Route::get('/laporanlistsuratmasuk', 'LaporanSuratMasukController@index');
+    //root untuk status surat masuk
+    Route::get('/statussuratmasuk', 'ListSuratMasukController@statussurat');
 
+    //root untuk laporan surat masuk
+    Route::get('/laporansuratmasuk', 'ListSuratMasukController@laporanindex');
+    //Route::get('/laporan/listsuratmasuk/view/{id}', 'ListSuratMasukController@read');
+    //Route::get('/laporan/listsuratmasuk/cetaksatu/{id}', 'ListSuratMasukController@cetaksatu');
+    //Route::get('/laporan/listsuratmasuk/cetaklist', 'ListSuratMasukController@cetaklist');
 //bagian dari surat masuk
 
 //bagian dari produklayanan
@@ -109,27 +120,42 @@ Route::get('/divisi/delete/{id}', 'DivisiController@destroy');
     Route::get('/listtagihanproduklayanan/edit/{id}', 'ListTagihanProdukLayananController@edit');
     Route::get('/listtagihanproduklayanan/view/{id}', 'ListTagihanProdukLayananController@show');
     Route::put('/listtagihanproduklayanan/update/{id}', 'ListTagihanProdukLayananController@update');
+    Route::put('/listtagihanproduklayanan/statusdokument/{id}', 'ListTagihanProdukLayananController@status');
+    Route::put('/listtagihanproduklayanan/statustagihan/{id}', 'ListTagihanProdukLayananController@tagihanstatus');
     Route::get('/listtagihanproduklayanan/delete/{id}', 'ListTagihanProdukLayananController@destroy');
 
+    //root untuk status listtagihanproduk/layanan
+    Route::get('/statusdokumentproduklayanan', 'ListTagihanProdukLayananController@statusdokument');
+    Route::get('/statustagihanproduklayanan', 'ListTagihanProdukLayananController@statustagihan');
+
     //root untuk laporan jenisproduk/layanan
-    Route::get('/laporanlisttagihanproduk', 'LaporanListTagihanProdukController@index');
-
-
+    Route::get('/laporanlisttagihanproduklayanan', 'ListTagihanProdukLayananController@laporanindex');
+    //Route::get('/laporan/listtagihanproduklayanan/view/{id}', 'ListTagihanProdukLayananController@read');
+    //Route::get('/laporan/listtagihanproduklayanan/cetaksatu/{id}', 'ListTagihanProdukLayananController@cetaksatu');
+    //Route::get('/laporan/listtagihanproduklayanan/cetaklist', 'ListTagihanProdukLayananController@cetaklist');
 //bagian dari produklayanan
 
 //bagian dari project
-    //root untuk crud listtagihanproject
+    //root untuk crud project
     Route::get('/listtagihanproject', 'ListTagihanProjectController@index');
     Route::get('/listtagihanproject/create', 'ListTagihanProjectController@create');
     Route::post('/listtagihanproject/save', 'ListTagihanProjectController@store');
     Route::get('/listtagihanproject/edit/{id}', 'ListTagihanProjectController@edit');
     Route::get('/listtagihanproject/view/{id}', 'ListTagihanProjectController@show');
     Route::put('/listtagihanproject/update/{id}', 'ListTagihanProjectController@update');
+    Route::put('/listtagihanproject/statusdokument/{id}', 'ListTagihanProjectController@status');
+    Route::put('/listtagihanproject/statustagihan/{id}', 'ListTagihanProjectController@tagihan');
     Route::get('/listtagihanproject/delete/{id}', 'ListTagihanProjectController@destroy');
 
-    //root untuk laporan project
-    Route::get('/laporanlisttagihanproject', 'LaporanListProjectController@index');
+    //root untuk status project
+    Route::get('/statusdokumentproject', 'ListTagihanProjectController@statusdokument');
+    Route::get('/statustagihanproject', 'ListTagihanProjectController@statustagihan');
 
+    //root untuk laporan project
+    Route::get('/laporanlisttagihanproject', 'ListTagihanProjectController@laporanindex');
+    //Route::get('/laporan/listtagihanproject/view/{id}', 'ListTagihanProjectController@read');
+    //Route::get('/laporan/listtagihanproject/cetaksatu/{id}', 'ListTagihanProjectController@cetaksatu');
+    //Route::get('/laporan/listtagihanproject/cetaklist', 'ListTagihanProjectController@cetaklist');
 //bagian dari project
 
 //bagian dari fakturpajak
@@ -140,11 +166,17 @@ Route::get('/divisi/delete/{id}', 'DivisiController@destroy');
     Route::get('/listfakturpajak/edit/{id}', 'ListFakturPajakController@edit');
     Route::get('/listfakturpajak/view/{id}', 'ListFakturPajakController@show');
     Route::put('/listfakturpajak/update/{id}', 'ListFakturPajakController@update');
+    Route::put('/listfakturpajak/status/{id}', 'ListFakturPajakController@status');
     Route::get('/listfakturpajak/delete/{id}', 'ListFakturPajakController@destroy');
 
+    //root untuk status surat keluar
+    Route::get('/statusfakturpajak', 'ListFakturPajakController@statussurat');
+
     //root untuk laporan fakturpajak
-    Route::get('/laporanlistfakturpajak', 'LaporanListFakturPajakController@index');
-    
+    Route::get('/laporanlistfakturpajak', 'ListFakturPajakController@laporanindex');
+    //oute::get('/laporan/listfakturpajak/view/{id}', 'ListFakturPajakController@read');
+    //Route::get('/laporan/listfakturpajak/cetaksatu/{id}', 'ListFakturPajakController@cetaksatu');
+    //Route::get('/laporan/listfakturpajak/cetaklist', 'ListFakturPajakController@cetaklist');  
 //bagian dari fakturpajak
 
 //root untuk instansi rekanan

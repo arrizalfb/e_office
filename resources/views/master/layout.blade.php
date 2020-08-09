@@ -80,41 +80,46 @@
                               </a>
                             </li>
                             <li>
-                              <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-external-link" style="color:#ffffff"></i><span>Surat Keluar</span></a>
-                                <ul class="treeview-menu">
-                                    <li class="{{Request::is('/dropdown/dpage1') ? 'active' : null }}"><a href="/jenissuratkeluar"><i class=""></i> Jenis Surat Keluar</a></li>
-                                    <li class="{{Request::is('/dropdown/dpage2') ? 'active' : null }}"><a href="/listsuratkeluar"><i class=""></i> List Surat Keluar</a></li>
-                                    <li class="{{Request::is('/dropdown/dpage3') ? 'active' : null }}"><a href="/statussuratkeluar"><i class=""></i> Status Surat</a></li>
-                                    <li class="{{Request::is('/dropdown/dpage4') ? 'active' : null }}"><a href="/laporanlistsuratkeluar"><i class=""></i> Laporan</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                              <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-envelope-o" style="color:#ffffff"></i><span>Surat Masuk</span></a>
+                              <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-envelope-o" style="color:#ffffff"></i><span>Surat Menyurat</span></a>
                                 <ul class="collapse">
-                                    <li class="{{Request::is('/dropdown/dpage5') ? 'active' : null }}"><a href="/listsuratmasuk"><i class=""></i> List Surat Masuk</a></li>
-                                    <li class="{{Request::is('/dropdown/dpage6') ? 'active' : null }}"><a href="/statussuratmasuk"><i class=""></i> Status Surat</a></li>
-                                  <li class="{{Request::is('/dropdown/dpage7') ? 'active' : null }}"><a href="/laporanlistsuratmasuk"><i class=""></i> Laporan</a></li>
+                                  <li class="treeview">
+                                    <a href="#"><i class="fa fa-circle-o" style="color:#ffffff"></i>Surat Keluar</a>
+                                    <ul class="treeview-menu">
+                                      <li class="{{Request::is('/dropdown/dpage1') ? 'active' : null }}"><a href="/jenissuratkeluar"><i class=""></i> Jenis Surat Keluar</a></li>
+                                      <li class="{{Request::is('/dropdown/dpage2') ? 'active' : null }}"><a href="/listsuratkeluar"><i class=""></i> List Surat Keluar</a></li>
+                                      <li class="{{Request::is('/dropdown/dpage3') ? 'active' : null }}"><a href="/statussuratkeluar"><i class=""></i> Status Surat Keluar</a></li>
+                                      <li class="{{Request::is('/dropdown/dpage4') ? 'active' : null }}"><a href="/laporansuratkeluar"><i class=""></i> Laporan</a></li>
+                                    </ul>
+                                  </li>
+                                  <li class="treeview">
+                                    <a href="#"><i class="fa fa-circle-o" style="color:#ffffff"></i>Surat Masuk</a>
+                                    <ul class="treeview-menu">
+                                      <li class="{{Request::is('/dropdown/dpage5') ? 'active' : null }}"><a href="/listsuratmasuk"><i class=""></i> List Surat Masuk</a></li>
+                                      <li class="{{Request::is('/dropdown/dpage6') ? 'active' : null }}"><a href="/statussuratmasuk"><i class=""></i> Status Surat Masuk</a></li>
+                                      <li class="{{Request::is('/dropdown/dpage7') ? 'active' : null }}"><a href="/laporansuratmasuk"><i class=""></i> Laporan</a></li>
+                                    </ul>
+                                  </li>
                                 </ul>
                             </li>
                             <li>
                               <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-folder" style="color:#ffffff"></i><span>Penagihan</span></a>
                                 <ul class="collapse">
                                   <li class="treeview">
-                                    <a href="#"></i>Produk/Layanan</a>
+                                    <a href="#"><i class="fa fa-circle-o" style="color:#ffffff"></i>Produk/Layanan</a>
                                     <ul class="treeview-menu">
                                       <li class="{{Request::is('/dropdown/dpage8') ? 'active' : null }}"><a href="/jenisproduklayanan"><i class=""></i> Jenis Produk/Layanan</a></li>
                                       <li class="{{Request::is('/dropdown/dpage9') ? 'active' : null }}"><a href="/listtagihanproduklayanan"><i class=""></i> List Tagihan Produk/Layanan</a></li>
-                                      <li class="{{Request::is('/dropdown/dpage10') ? 'active' : null }}"><a href="/statusdokumentproduk"><i class=""></i> Status Dokument</a></li>
-                                      <li class="{{Request::is('/dropdown/dpage11') ? 'active' : null }}"><a href="/statustagihanproduk"><i class=""></i> Status Tagihan</a></li>
-                                      <li class="{{Request::is('/dropdown/dpage12') ? 'active' : null }}"><a href="/laporanlisttagihanproduk"><i class=""></i> Laporan</a></li>
+                                      <li class="{{Request::is('/dropdown/dpage10') ? 'active' : null }}"><a href="/statusdokumentproduklayanan"><i class=""></i> Status Dokument Produk/Layanan</a></li>
+                                      <li class="{{Request::is('/dropdown/dpage11') ? 'active' : null }}"><a href="/statustagihanproduklayanan"><i class=""></i> Status Tagihan Produk/Layanan</a></li>
+                                      <li class="{{Request::is('/dropdown/dpage12') ? 'active' : null }}"><a href="/laporanlisttagihanproduklayanan"><i class=""></i> Laporan</a></li>
                                     </ul>
                                   </li>
                                   <li class="treeview">
-                                    <a href="#">Project</a>
+                                    <a href="#"><i class="fa fa-circle-o" style="color:#ffffff"></i>Project</a>
                                     <ul class="treeview-menu">
                                       <li class="{{Request::is('/dropdown/dpage13') ? 'active' : null }}"><a href="/listtagihanproject"><i class=""></i> List Tagihan Project</a></li>
-                                      <li class="{{Request::is('/dropdown/dpage13') ? 'active' : null }}"><a href="/statusdokumentproject"><i class=""></i> Status Dokument</a></li>
-                                      <li class="{{Request::is('/dropdown/dpage15') ? 'active' : null }}"><a href="/statustagihanproject"><i class=""></i> Status Tagihan</a></li>
+                                      <li class="{{Request::is('/dropdown/dpage14') ? 'active' : null }}"><a href="/statusdokumentproject"><i class=""></i> Status Dokument Project</a></li>
+                                      <li class="{{Request::is('/dropdown/dpage15') ? 'active' : null }}"><a href="/statustagihanproject"><i class=""></i> Status Tagihan Project</a></li>
                                       <li class="{{Request::is('/dropdown/dpage16') ? 'active' : null }}"><a href="/laporanlisttagihanproject"><i class=""></i> Laporan</a></li>
                                     </ul>
                                   </li>

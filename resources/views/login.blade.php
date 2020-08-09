@@ -141,10 +141,11 @@
                 @endif  
             </div>     
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
             </div>
             <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
         </form>
+        <div class="text-center">Already have an account? <a href="{{url('registration')}}">Sign Up here</a>.</div>
     </div>
 </body>
 </html>

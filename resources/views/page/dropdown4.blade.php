@@ -2,104 +2,151 @@
 
 @section('content')
 <!-- page title area end -->
-  <div class="main-content-inner">
-    <div class="row">
-      <!-- Primary table start -->
-      <div class="col-12 mt-5">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="header-title">Form List Surat Masuk</h4>
+    <div class="main-content-inner">
+      <div class="row">
+        <!-- Primary table start -->
+        <div class="col-12 mt-4">
+          <div class="card">
+
+            <div class="card-body">
+              <h4 class="header-title">Laporan Data Tabel List Surat Keluar</h4>
               <div class="data-tables datatable-primary">
-              <!-- /.box-header -->
-
-                <!-- form start -->
-                <form method="post" action="/listsuratmasuk/save">
-                {{ csrf_field() }}
-                  <div class="box-body">
-                    <div class="form-group">
-                      <label for="no_surat">No. Surat</label>
-                      <input type="text" class="form-control" id="no_surat" name="no_surat" placeholder="No. Surat">
-                    </div>
-                    <div class="form-group">
-                      <label for="perihal">Perihal Surat</label>
-                      <input type="text" class="form-control" id="perihal" name="perihal" placeholder="Perihal Surat">
-                    </div>
-                    <div class="form-group">
-                      <label for="instansipengirim">Instansi Pengirim</label>
-                      <input type="text" class="form-control" id="instansipengirim" name="instansipengirim"placeholder="Perusahaan">
-                    </div>
-                    <div class="form-group">
-                      <label for="keterangan">Keterangan</label>
-                      <textarea rows="7" class="form-control" id="keterangan" name="Keterangan"placeholder="Keterangan"></textarea>
-                    </div>
-                  <!-- /.box-body -->
-
-                  <div class="box-footer">
-                    <input type="submit" class="btn btn-primary" value="Submit">
-                  </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    </div>
-</div>
-</div>
-
-<!-- page title area end -->
-  <div class="main-content-inner">
-    <div class="row">
-      <!-- Primary table start -->
-      <div class="col-12 mt-4">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="header-title">Data Table List Surat Masuk</h4>
-            <div class="data-tables dataTables_wrapper datatable-primary">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Perihal</th>
-                        <th>Instansi Pengirim</th>
-                        <th>Keterangan</th>
-                        <th>Status Surat Masuk</th>
-                        <th>Action</th>
-                    </tr>
+                <table id="dataTable2" class="text-center">
+                  <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>No. Surat</th>
+                    <th>Jenis Surat</th>
+                    <th>Perihal</th>
+                    <th>Tujuan</th>
+                    <th>Penanggung Jawab</th>
+                    <th>Status Surat</th>
+                    <th>Keterangan Status</th>
+                    <th>Action</th>
+                  </tr>
                 </thead>
-
+                
                 <tbody>
-                <?php $no = 1;?>
-                    @foreach($listsuratmasuk as $lsm)
-                    <tr>
-                        <td>{{$no++}}</td>
-                        <td>{{$lsm->perihal}}</td>
-                        <td>{{$lsm->instansipengirim}}</td>
-                        <td>{{$lsm->Keterangan}}</td>
-                        <td>{{$lsm->statussuratmasuk}}</td>
-                        <td>
-                            <a href="/listsuratmasuk/edit/{{ $lsm->id }}" button type="button" class="btn btn-info badge-pill" style="padding-right:80px,width:80px">Edit</a>
-                            <a href="/listsuratmasuk/view/{{ $lsm->id }}" button type="button" class="btn btn-warning badge-pill" style="padding-right:80px,width:80px">View</a>
-                            <a href="/listsuratmasuk/delete/{{ $lsm->id }}" button type="button" class="btn btn-danger badge-pill" style="padding-right:80px,width:80px">Delete</a>
-                        </td>
-                    </tr>
-                    @endforeach
+                  <?php 
+                      $no = 1;
+                      $bulanRomawi  = array("","I","II","III","IV","V","VI","VII","IX","X","XI");  
+                  ?>
+                  @foreach($listsuratkeluar as $lsk)
+
+                  <tr>
+                    <td>{{$no++}}</td>
+                    <td>{{$lsk->no_surat}}</td>
+                    <td>{{$lsk->jenissurat}}</td>
+                    <td>{{$lsk->perihal}}</td>
+                    <td>{{$lsk->tujuan}}</td>
+                    <td>{{$lsk->penanggungjawab}}</td>
+                    <td>{{$lsk->statussuratkeluar}}</td>
+                    <td>{{$lsk->keteranganstatus}}</td>
+                    <td>
+                        <!-- <a href="/listsuratkeluar/edit/{{ $lsk->id }}" button type="button" class="btn btn-info edit" style="padding-right:80px,width:80px">Edit</a> -->
+                        <!-- <a href="/listsuratkeluar/view/{{ $lsk->id }}" button type="button" class="btn btn-warning view" style="padding-right:80px,width:80px">View</a> -->
+                        <!-- <a href="/listsuratkeluar/delete/{{ $lsk->id }}" button type="button" class="btn btn-danger delete" style="padding-right:80px,width:80px">Delete</a> -->
+
+                        <button type="button" class="btn btn-warning badge-pill fa fa-eye" data-toggle="modal" data-target="#View{{$lsk->id}}">View</button>
+                    </td>
+                  </tr>
+                  @endforeach
                 </tbody>
-
+                
                 <tfoot>
-                    <tr>
-                        <th>No</th>
-                        <th>Perihal</th>
-                        <th>Instansi Pengirim</th>
-                        <td>Keterangan</td>
-                        <th>Status Surat Masuk</th>
-                        <th>Action</th>
-                    </tr>
-                </tfoot>
+                  <tr>
+                    <th>No</th>
+                    <th>No. Surat</th>
+                    <th>Jenis Surat</th>
+                    <th>Perihal</th>
+                    <th>Tujuan</th>
+                    <th>Penanggung Jawab</th>
+                    <th>Status Surat</th>
+                    <th>Keterangan Status</th>
+                    <th>Action</th>
+                  </tr>
+                </tfoot> 
+                </table>
+              </div>
+            </div>
 
-            </table>
+          </div>
         </div>
+        <!-- Primary table end -->
+      </div>
     </div>
+
+<!-- View Data -->
+@foreach($listsuratkeluar as $lsk)
+<div class="modal fade" id="View{{$lsk->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form method="post" action="/listsuratkeluar/view/{{$lsk->id}}">
+          {{ csrf_field() }}
+          <div class="box-body">
+
+            <div class="form-group">
+              <label for="statussuratkeluar">Status Surat Keluar</label>
+              <input type="text" class="form-control" value="{{$lsk->statussuratkeluar}}" id="statussuratkeluar" name="no_surat" placeholder="Status Surat Keluar" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="statussuratkeluar">Keterangan Surat Keluar</label>
+              <input type="text" class="form-control" value="{{$lsk->keteranganstatus}}" id="statussuratkeluar" name="no_surat" placeholder="Keterangan Surat Keluar" readonly>
+            </div>
+
+
+            <div class="form-group">
+              <label for="no_surat">No. Surat</label>
+              <input type="text" class="form-control" value="{{$lsk->no_surat}}" id="no_surat" name="no_surat" placeholder="No. Surat" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="jenissurat">Jenis Surat</label>
+              <input type="text" class="form-control" value="{{$lsk->jenissurat}}" id="jenissurat" name="jenissurat" placeholder="Jenis Surat" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="perihal">Perihal</label>
+              <input type="text" class="form-control" value="{{$lsk->perihal}}" id="perihal" name="perihal" placeholder="Perihal" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="tujuan">Tujuan</label>
+              <input type="text" class="form-control" value="{{$lsk->tujuan}}" id="tujuan" name="tujuan" placeholder="Tujuan" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="penanggungjawab">Penanggung Jawab</label>
+              <input type="text" class="form-control" value="{{$lsk->penanggungjawab}}" id="penanggungjawab" name="penanggungjawab"placeholder="Penanggung Jawab" readonly>
+            </div>
+
+            <div class="form-group">
+              <label for="keterangan">Keterangan</label>
+              <textarea rows="7" class="form-control" id="keterangan" name="keterangan" placeholder="Keterangan" readonly>{{$lsk->keterangan}}</textarea>
+            </div>
+            <!-- /.box-body -->
+
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
+@endforeach
+
 @endsection

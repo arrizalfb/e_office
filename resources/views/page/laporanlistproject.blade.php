@@ -1,31 +1,33 @@
 @extends('master.layout')
 
 @section('content')
-<!-- page title area end -->
-  <div class="main-content-inner">
-    <div class="row">
-      <!-- Primary table start -->
-      <div class="col-12 mt-5">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="header-title">Laporan List Surat Keluar</h4>
-            <div class="data-tables datatable-primary">
-              <table id="dataTable2" class="text-center">
+<div class="box">
+        <div class="box-header">
+            <h3 class="box-title"><b>Laporan List Tagihan Project</b></h3>
+        </div>
+        <div class="card-body" style="padding:10px">
+            <a href="/laporan/listtagihanproject/cetaklist" target="_blank" button type="button" class="btn btn-primary badge-pill" style="padding-right:80px,width:80px">Cetak</a>
+        </div>
+        
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
                 <thead>
-                <th>No</th>
+                    <th>No</th>
                         <th>Instansi Rekanan</th>
                         <th>Tanggal Tagihan</th>
                         <th>Nominal HPP</th>
                         <th>Nominal PPN</th>
                         <th>Tanggal Jatuh Tempo</th>
                         <th>Dokument Pelengkap</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- untuk  nomor urut otomatis -->
                     <?php $no = 1;?>
 
-                    @foreach($laporanlistproject as $ltp)
+                    @foreach($listtagihanproject as $ltp)
                     <tr>
                         <td>{{$no++}}</td>
                         <td>{{$ltp->instansirekanan}}</td>
@@ -34,14 +36,29 @@
                         <td>{{$ltp->ppn}}</td>
                         <td>{{$ltp->tanggaljatuhtempo}}</td>
                         <td><img src="{{asset('/storage/'.$ltp->dokumentpelengkap)}}" height="100" width="100"></td>
+                        <td>
+                            <a href="/laporan/listtagihanproject/view/{{ $ltp->id }}" button type="button" class="btn btn-warning badge-pill" style="padding-right:80px,width:80px">View</a>
+                            <!-- <a href="/listtagihanproject/delete/{{ $ltp->id }}" button type="button" class="btn btn-danger badge-pill" style="padding-right:80px,width:80px">Delete</a> -->
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
-              </table>
-            </div>
-          </div>
+
+                <tfoot>
+                    <tr>
+                        <th>No</th>
+                        <th>Instansi Rekanan</th>
+                        <th>Tanggal Tagihan</th>
+                        <th>Nominal HPP</th>
+                        <th>Nominal PPN</th>
+                        <th>Tanggal Jatuh Tempo</th>
+                        <th>Dokument Pelengkap</th>
+                        <th>Action</th>
+                    </tr>
+                </tfoot>
+
+            </table>
         </div>
-      </div>
-    </div>
-  </div>
+            <!-- /.box-body -->
+
 @endsection
