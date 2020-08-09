@@ -37,7 +37,6 @@
                 <div class="form-group">
                   <label for="contactperson">Contact Person</label>
                   <input type="number" class="form-control" id="contactperson" name="contact" placeholder="Contact Person">
-                  <small>Jika Contact Lebih dari Satu Pisahkan dengan koma ( , )</small>
                 </div>
                 
               <!-- /.box-body -->

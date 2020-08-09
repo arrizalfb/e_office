@@ -15,17 +15,12 @@ class ListTagihanProdukLayananController extends Controller
      */
     public function index()
     {
+        $instansi = Instansi::all();
         $listtagihanproduklayanan = ListTagihanProdukLayanan::all();
         
-        return view ('page.dropdown8',compact('listtagihanproduklayanan'));
+        return view ('page.dropdown8',compact('listtagihanproduklayanan','instansi'));
     }
 
-    public function laporanindex()
-    {
-        $listtagihanproduklayanan = ListTagihanProdukLayanan::all();
-        
-        return view ('page.laporanlisttagihanproduk', compact('listtagihanproduklayanan'));
-    }
 
     public function cetaklist()
     {

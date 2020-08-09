@@ -97,6 +97,10 @@ class DivisiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $divisi = Divisi::all();
+        $divisi = Divisi::find($id);
+        $divisi->delete();
+
+        return redirect('divisi');
     }
 }

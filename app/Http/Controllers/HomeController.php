@@ -22,7 +22,6 @@ class HomeController extends Controller
     public function index()
     {
         //untuk menampilkan di dashboard
-
         $listsuratkeluar = ListSuratKeluar::all();
         $listsuratmasuk = ListSuratMasuk::all();
         $jenisproduklayanan = JenisProdukLayanan::all();
@@ -50,7 +49,7 @@ class HomeController extends Controller
                            ->get();
 
 
-        return view ('page.home', compact('listsuratkeluar', 'listsuratmasuk','jenisproduklayanan','listtagihanproject','jenissuratkeluar','listtagihanproduklayanan','listfakturpajak'));
+        return view ('page.home', compact('jenissuratkeluar','listsuratkeluar', 'listsuratmasuk','jenisproduklayanan','listtagihanproject','jenissuratkeluar','listtagihanproduklayanan','listfakturpajak'));
     }
 
     // public function grafik1(){

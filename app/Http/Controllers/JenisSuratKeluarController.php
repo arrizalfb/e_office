@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\JenisSuratKeluar;
+use App\Instansi;
 
 class JenisSuratKeluarController extends Controller
 {
@@ -15,8 +16,12 @@ class JenisSuratKeluarController extends Controller
     public function index()
     {
         $jenissuratkeluar = JenisSuratKeluar::all();
+        $instansi = Instansi::all();
+
+        $max = JenisSuratKeluar::max('id');
+        $max = $max + 1;
         
-        return view ('page.dropdown1',['jenissuratkeluar'=>$jenissuratkeluar]);
+        return view ('page.dropdown1',compact('jenissuratkeluar', 'instansi', 'max'));
 
     }
 

@@ -1,6 +1,7 @@
 @extends('master.layout')
 
 @section('content')
+
   <div class="box">
     <div class="box-header">
         <h3 class="box-title"><b>Table List Faktur pajak</b></h3>

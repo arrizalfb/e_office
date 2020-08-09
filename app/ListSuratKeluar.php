@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class ListSuratKeluar extends Model
 {
     protected $table="list_surat_keluars";
-    protected $fillable = ['no_surat','jenissurat','perihal','tujuan','penanggungjawab','keterangan','statussuratkeluar'];
+    protected $fillable = ['no_surat','jenissurat','perihal','tujuan','perusahaan','penanggungjawab','keterangan','statussuratkeluar'];
 }

@@ -18,23 +18,19 @@ class ListSuratKeluarController extends Controller
     public function index()
     {
         $listsuratkeluar = ListSuratKeluar::all();
-        
-        return view ('page.dropdown2',compact('listsuratkeluar'));
+        $jenissuratkeluar = JenisSuratKeluar::all();
+        $instansi = Instansi::all();
+
+        return view ('page.dropdown2',compact('listsuratkeluar','jenissuratkeluar','instansi'));
     }
 
-    public function laporanindex()
-    {
-        $listsuratkeluar = ListSuratKeluar::all();
-        
-        return view ('page.laporanlistsuratkeluar',['listsuratkeluar'=>$listsuratkeluar]);
-    }
 
-    public function cetaklist()
-    {
-        $listsuratkeluar = ListSuratKeluar::all();
+    // public function cetaklist()
+    // {
+    //     $listsuratkeluar = ListSuratKeluar::all();
         
-        return view ('page.cetaklaporanlistsuratkeluar',['listsuratkeluar'=>$listsuratkeluar]);
-    }
+    //     return view ('page.cetaklaporanlistsuratkeluar',['listsuratkeluar'=>$listsuratkeluar]);
+    // }
 
     // public function cetaksatu($id)
     // {
@@ -88,8 +84,7 @@ class ListSuratKeluarController extends Controller
         //memanggil dari createlistsuratmasuk dengan variabel name dan memasukan ke database
         ListSuratKeluar::create([
             //request itu diambil untuk name
-            //'no_surat' itu diambil dari database
-            'no_surat'=>$request->no_surat,
+            'no_surat' =>$request->no_surat,
             'jenissurat'=>$request->jenissurat,
             'perihal'=>$request->perihal,
             'tujuan'=>$request->instansi,
@@ -134,7 +129,7 @@ class ListSuratKeluarController extends Controller
         $listkeluar = ListSuratKeluar::find($id);
         
         //letak folder sama layout yang akan diedit, kemudian panggil variabel suratkeluar di bagian input untuk diletakkan disana
-        return view('page.editlistsuratkeluar', ['listkeluar'=>$listkeluar]);
+        return view('page.editlistsuratkeluar', compact('listkeluar'));
     }
 
     /**
@@ -147,7 +142,6 @@ class ListSuratKeluarController extends Controller
     public function update($id, Request $request)
     {
         // $this->validate($request,[
-        //     'no_surat'=>'required',
         //     'jenissurat'=>'required',
         //     'perihal'=>'required',
         //     'tujuan'=>'required',
@@ -159,7 +153,6 @@ class ListSuratKeluarController extends Controller
         
         //memanggil inisialisasi dari edit dan membuat variabel baru yang akan di masukkan ke database
         $listkeluar = ListSuratKeluar::find($id);
-        $listkeluar->no_surat = $request->no_surat;
         $listkeluar->jenissurat = $request->jenissurat;
         $listkeluar->perihal = $request->perihal;
         $listkeluar->tujuan = $request->tujuan;

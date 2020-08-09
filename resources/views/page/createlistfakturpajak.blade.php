@@ -53,7 +53,6 @@
 
                 <div class="form-group">
                   <label for="bulanpajak">Bulan Pajak</label>
-
                   <input type="text" class="form-control" value="$namaBulan" id="bulanpajak" name="bulanpajak" placeholder="Bulan Pajak">
                 </div>
                 <div class="form-group">

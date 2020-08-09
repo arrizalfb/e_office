@@ -18,43 +18,43 @@
                   <label for="noromawijenissurat">No. Romawi Jenis Surat</label>
                   <?php
 
-if (date('m')=='01') {
-  $rom = "01";
-}elseif (date('m')=='02') {
-  $rom = "02";
-}elseif (date('m')=='03') {
-  $rom = "03";
-}elseif (date('m')=='04') {
-  $rom = "04";
-}elseif (date('m')=='05') {
-  $rom = "05";
-}elseif (date('m')=='06') {
-  $rom = "06";
-}elseif (date('m')=='07') {
-  $rom = "07";
-}elseif (date('m')=='08') {
-  $rom = "08";
-}elseif (date('m')=='09') {
-  $rom = "09";
-}elseif (date('m')=='10') {
-  $rom = "10";
-}elseif (date('m')=='11') {
-  $rom = "11";
-}elseif (date('m')=='12') {
-  $rom = "12";
-}
+                    if (date('m')=='01') {
+                      $rom = "I";
+                    }elseif (date('m')=='02') {
+                      $rom = "II";
+                    }elseif (date('m')=='03') {
+                      $rom = "III";
+                    }elseif (date('m')=='04') {
+                      $rom = "IV";
+                    }elseif (date('m')=='05') {
+                      $rom = "V";
+                    }elseif (date('m')=='06') {
+                      $rom = "VI";
+                    }elseif (date('m')=='07') {
+                      $rom = "VII";
+                    }elseif (date('m')=='08') {
+                      $rom = "VIII";
+                    }elseif (date('m')=='09') {
+                      $rom = "IX";
+                    }elseif (date('m')=='10') {
+                      $rom = "X";
+                    }elseif (date('m')=='11') {
+                      $rom = "XI";
+                    }elseif (date('m')=='12') {
+                      $rom = "XII";
+                    }
 
-if (strlen($max)==1) {
-  $max = '000'.$max;
-}elseif (strlen($max)==2) {
-  $max = '00'.$max;
-}elseif (strlen($max)==3) {
-  $max = '0'.$max;
-}elseif (strlen($max)==4) {
-  $max = $max;
-}
-?>
-<input type="text" class="form-control" value="{{$max.'/A//KKP/'.$rom.'/'.date('Y')}}"id="noromawijenissurat" name="noromawijenissurat" placeholder="No. Romawi Jenis Surat">
+                    if (strlen($max)==1) {
+                      $max = '000'.$max;
+                    }elseif (strlen($max)==2) {
+                      $max = '00'.$max;
+                    }elseif (strlen($max)==3) {
+                      $max = '0'.$max;
+                    }elseif (strlen($max)==4) {
+                      $max = $max;
+                    }
+                   ?>
+                  <input type="text" class="form-control" value="{{$max.'/A//KKP/'.date('M').date('Y')}}"id="noromawijenissurat" name="noromawijenissurat" placeholder="No. Romawi Jenis Surat">
                 </div>
                 <div class="form-group">
                   <label for="inisial">Inisial Jenis Surat</label>

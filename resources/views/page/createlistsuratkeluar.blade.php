@@ -18,7 +18,7 @@
                 <div class="form-group">
                   <label for="jenissurat">Jenis Surat</label>
                   <select name="jenissurat" class="form-control">
-                      @foreach($jenissurat as $j)
+                      @foreach($jenissuratkeluar as $j)
                         <option>{{strtoupper($j->jenissurat)}}</option>
                       @endforeach
                     </select>

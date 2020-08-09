@@ -15,17 +15,12 @@ class ListTagihanProjectController extends Controller
      */
     public function index()
     {
+        $instansi = Instansi::all();
         $listtagihanproject = ListTagihanProject::all();
         
-        return view ('page.dropdown12',['listtagihanproject'=>$listtagihanproject]);
+        return view ('page.dropdown12',compact('listtagihanproject','instansi'));
     }
 
-    public function laporanindex()
-    {
-        $listtagihanproject = ListTagihanProject::all();
-        
-        return view ('page.laporanlistproject', compact('listtagihanproject'));
-    }
 
     public function cetaklist()
     {

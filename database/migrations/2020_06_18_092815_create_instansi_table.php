@@ -16,11 +16,11 @@ class CreateInstansiTable extends Migration
         Schema::create('instansi', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('instansi_rekanan');
+            $table->string('prioritas');
             $table->text('alamat');
             $table->integer('npwp');
-            $table->integer('contact_person');
             $table->text('namecontact');
-            $table->string('prioritas');
+            $table->biginteger('contact_person');
             $table->timestamps();
         });
     }

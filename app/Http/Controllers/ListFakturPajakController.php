@@ -15,16 +15,10 @@ class ListFakturPajakController extends Controller
      */
     public function index()
     {
+        $instansi = Instansi::all();
         $listfakturpajak = ListFakturPajak::all();
         
-        return view ('page.dropdown16',['listfakturpajak'=>$listfakturpajak]);
-    }
-
-    public function laporanindex()
-    {
-        $listfakturpajak = ListFakturPajak::all();
-        
-        return view ('page.laporanlistfakturpajak',['listfakturpajak'=>$listfakturpajak]);
+        return view ('page.dropdown16',compact('listfakturpajak','instansi'));
     }
 
     public function cetaklist()

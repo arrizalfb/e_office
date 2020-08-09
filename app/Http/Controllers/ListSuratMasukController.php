@@ -19,13 +19,6 @@ class ListSuratMasukController extends Controller
         return view ('page.dropdown4',compact('listsuratmasuk'));
     }
 
-    public function laporanindex()
-    {
-        $listsuratmasuk = ListSuratMasuk::all();
-
-        return view ('page.laporanlistsuratmasuk',compact('listsuratmasuk'));
-    }
-
     public function cetaklist()
     {
         $listsuratmasuk = ListSuratMasuk::all();
@@ -132,7 +125,7 @@ class ListSuratMasukController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'no_surat'=>'required',
+            //'no_surat'=>'required',
             'perihal'=>'required',
             'instansipengirim'=>'required',
             'Keterangan'=>'required',
@@ -141,7 +134,7 @@ class ListSuratMasukController extends Controller
         
         //memanggil inisialisasi dari edit dan membuat variabel baru yang akan di masukkan ke database
         $suratmasuk = ListSuratMasuk::find($id);
-        $suratmasuk->no_surat = $request->no_surat;
+        //$suratmasuk->no_surat = $request->no_surat;
         $suratmasuk->perihal = $request->perihal;
         $suratmasuk->instansipengirim = $request->instansipengirim;
         $suratmasuk->Keterangan = $request->Keterangan;
