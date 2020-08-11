@@ -8,7 +8,7 @@
           <div class="col-12 mt-5">
             <div class="card">
               <div class="card-body">
-                <h4 class="header-title">Form Instansi Rekanan</h4>
+                <h4 class="header-title">Form Divisi</h4>
                   <div class="data-tables datatable-primary">
                   <!-- /.box-header -->
                     <!-- form start -->
